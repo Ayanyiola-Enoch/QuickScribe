@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'reac
 import React from 'react';
 import Header from '../../components/Header/Header';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.page}>
       <View style={{ alignItems: 'center', marginTop: 50 }}>
@@ -14,13 +14,13 @@ const WelcomeScreen = () => {
       <View style={{ marginTop: 13, alignItems: 'center' }}>
         <Image source={require('../../assets/images/iamge-removebg-preview-removebg-preview.png')} style={{ width: '65%', height: 300 }} />
       </View>
-      <View style={{ borderWidth: 1, borderRadius: 10, marginTop: 40, paddingHorizontal: 30 }}>
+      <View style={{ borderWidth: 1, borderRadius: 10, marginTop: 40, paddingHorizontal: 30, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
         <TextInput placeholder='Enter your name' placeholderTextColor={'#2f344c'} />
+        <TouchableOpacity onPress={() => navigation.navigate('Main')}>
+          <Image source={require('../../assets/icons/icons8-arrow-right-100.png')} style={{ width: 30, height: 30 }} />
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={{ borderWidth: 2, width: 100, height: 50 }}>
-        <Text style={{ color: '#2C64D7', fontWeight: '600', fontSize: 16, textAlign: 'center' }}>Get Started</Text>
-      </TouchableOpacity>
-    </View>
+    </View >
   );
 };
 
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1',
     paddingTop: 20,
     padding: 20,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
 });

@@ -3,14 +3,13 @@ import React from 'react'
 
 const Header = () => {
     return (
-        <View style={styles.page}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', }}>
-                <View style={{ width: 10, height: 10, borderColor: '' }}>
-                    <Image source={require('../../assets/icons/icons8-hamburger-menu-480.png')} style={{ width: 17, height: 16 }} />
-                </View>
-                <Text style={{ marginLeft: 10, color: 'black', fontSize: 12 }}>All Notes</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+            <View style={{ width: 19, height: 19, borderColor: '#2F344C', }}>
+                <Image source={require('../../assets/icons/icons8-hamburger-menu-480.png')} style={{ width: 17, height: 16 }} />
             </View>
+            <Text style={{ marginLeft: 10, color: 'black', fontSize: 12 }}>All Notes</Text>
         </View>
+
     );
 };
 
