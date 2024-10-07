@@ -1,13 +1,15 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const Header = () => {
+const Header = ({ title }) => {
     return (
         <View style={{ flexDirection: 'row', alignItems: 'center', }}>
-            <View style={{ width: 19, height: 19, borderColor: '#2F344C', }}>
-                <Image source={require('../../assets/icons/icons8-hamburger-menu-480.png')} style={{ width: 17, height: 16 }} />
+            <TouchableOpacity style={{ width: 33, height: 33, borderColor: '#2F344C', borderWidth: 2, alignItems: 'center', justifyContent: 'center', borderRadius: 6 }}>
+                <Image source={require('../../assets/icons/icons8-hamburger-menu-480.png')} style={{ width: 23, height: 23 }} />
+            </TouchableOpacity>
+            <View>
+                <Text style={{ marginLeft: 10, color: 'black', fontSize: 13, fontWeight: 'bold' }}>All Notes</Text>
             </View>
-            <Text style={{ marginLeft: 10, color: 'black', fontSize: 12 }}>All Notes</Text>
         </View>
 
     );

@@ -9,7 +9,7 @@ const WelcomeScreen = ({ navigation }) => {
         <Text style={{ fontSize: 17, color: '#2C64D7', fontWeight: '600' }}>Quick<Text style={{ color: '#F24C26', fontWeight: '600', fontSize: 17 }}>Scribe</Text></Text>
       </View>
       <View style={{ marginTop: 20 }}>
-        <Text style={{ color: '#2F344C', fontSize: 13, fontWeight: '400' }}>"Welcome to QuickScribe: Where Your Thoughts Find a Home!"</Text>
+        <Text style={{ color: '#2F344C', fontSize: 13, fontWeight: '400' }}>Welcome to QuickScribe: Where Your Thoughts Find a Home!</Text>
       </View>
       <View style={{ marginTop: 13, alignItems: 'center' }}>
         <Image source={require('../../assets/images/iamge-removebg-preview-removebg-preview.png')} style={{ width: '65%', height: 300 }} />
