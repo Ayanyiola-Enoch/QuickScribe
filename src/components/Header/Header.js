@@ -6,7 +6,7 @@ const Header = () => {
         <View style={styles.page}>
             <View style={{ flexDirection: 'row', alignItems: 'center', }}>
                 <View style={{ width: 10, height: 10, borderColor: '' }}>
-                    <Image source={require('../../assets/icons/icons8-hamburger-menu-100.png')} style={{ width: 17, height: 16 }} />
+                    <Image source={require('../../assets/icons/icons8-hamburger-menu-480.png')} style={{ width: 17, height: 16 }} />
                 </View>
                 <Text style={{ marginLeft: 10, color: 'black', fontSize: 12 }}>All Notes</Text>
             </View>
