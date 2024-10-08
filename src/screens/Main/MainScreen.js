@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Image, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ScrollView, Image, FlatList, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Header from '../../components/Header/Header';
 
@@ -67,95 +67,65 @@ const MainScreen = ({ navigation }) => {
         )
     }
     return (
-        <View style={styles.page}>
+        <View>
 
-            <Header title={'All Notes'} />
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
 
-            {/* Flatlist of icons */}
+                {/* Search Space */}
 
-            <View style={{ marginBottom: 15 }}>
-                <View style={{ marginTop: 20, borderWidth: 1, borderRadius: 9, height: 44, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
-                    <Image source={require('../../assets/icons/icons8-search-100.png')} style={{ width: 19, height: 19 }} />
-                    <TextInput placeholder='Search Notes' placeholderTextColor={'#858585'} />
+                <View style={{ marginBottom: 22, marginTop: 20, flex: 1, backgroundColor: '#f1f1f1', padding: 20, }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+                        <View style={{ borderWidth: 1, borderRadius: 19, width: 280, height: 38, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
+                            <Image source={require('../../assets/icons/icons8-search-100.png')} style={{ width: 19, height: 19, marginRight: 10 }} />
+                            <TextInput placeholder="Search Notes" placeholderTextColor="#858585" style={{ fontSize: 13, color: 'black', paddingVertical: 0 }} />
+                        </View>
+
+                        <TouchableOpacity style={{ marginLeft: 10 }}>
+                            <Image source={require('../../assets/icons/icons8-settings-100.png')} style={{ width: 25, height: 25 }} />
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 13 }}>
+                        <TouchableOpacity style={{ marginTop: 19, justifyContent: 'center', borderWidth: 1, alignItems: 'center', borderRadius: 19, width: 70, height: 34, backgroundColor: 'black' }}>
+                            <Text style={{ fontSize: 13, fontWeight: '600', color: 'white', }}>Notes</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={{ marginTop: 19, justifyContent: 'center', borderWidth: 1, alignItems: 'center', borderRadius: 19, width: 70, height: 34, backgroundColor: 'black' }}>
+                            <Text style={{ fontSize: 13, fontWeight: '600', color: 'white', }}>Notes</Text>
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
-                <View>
-                    <Text style={{ fontSize: 13, fontWeight: '600', color: 'black', marginTop: 20 }}>Categories</Text>
+
+                <View style={styles.bottom}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <TouchableOpacity style={{ borderRadius: 19, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#9747ff', width: 93, height: 34 }}>
+                            <Image source={require('../../assets/icons/icons8-add-100.png')} style={{ width: 12, height: 12, tintColor: 'white' }} />
+                            <Text style={{ marginLeft: 3, fontSize: 13, color: 'white' }}>New note</Text>
+                        </TouchableOpacity>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                            <Image source={require('../../assets/icons/icons8-add-note-100.png')} style={{ width: 25, height: 25, }} />
+                            <Image source={require('../../assets/icons/icons8-sort-amount-up-reversed-100.png')} style={{ width: 25, height: 25 }} />
+                        </View>
+
+                    </View>
                 </View>
-                <FlatList data={header}
-                    renderItem={({ item }) => {
-                        return (
-                            <View style={{ marginTop: 27, paddingHorizontal: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                                <TouchableOpacity style={{ alignItems: 'center' }}>
-                                    <View style={{ borderWidth: 1, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
-                                        <Image source={item.icon} style={{ width: 24, height: 24 }} />
-                                    </View>
-                                    <View>
-                                        <Text style={{ fontSize: 12, fontWeight: '700', color: 'black', }}>{item.title}</Text>
-                                    </View>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={{ alignItems: 'center' }}>
-                                    <View style={{ borderWidth: 1, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
-                                        <Image source={item.workImage} style={{ width: 24, height: 24 }} />
-                                    </View>
-                                    <View>
-                                        <Text style={{ fontSize: 12, fontWeight: '700', color: 'black', }}>{item.title2}</Text>
-                                    </View>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={{ alignItems: 'center' }}>
-                                    <View style={{ borderWidth: 1, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
-                                        <Image source={item.healthImage} style={{ width: 24, height: 24 }} />
-                                    </View>
-                                    <View>
-                                        <Text style={{ fontSize: 12, fontWeight: '700', color: 'black', }}>{item.title3}</Text>
-                                    </View>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() => navigation.navigate('Add')} style={{ alignItems: 'center' }}>
-                                    <View style={{ borderWidth: 1, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
-                                        <Image source={item.addImage} style={{ width: 24, height: 24 }} />
-                                    </View>
-                                    <View>
-                                        <Text style={{ fontSize: 12, fontWeight: '700', color: 'black', }}>{item.title4}</Text>
-                                    </View>
-                                </TouchableOpacity>
-                            </View>
-                        );
-                    }} />
+            </ScrollView >
 
-                {/* flatlist for the notes added */}
-
-
-                <FlatList data={addNote}
-                    renderItem={({ item }) => {
-                        return (
-                            <View style={{ marginBottom: 15 }}>
-                                <TouchableOpacity style={{ borderWidth: 1, marginTop: 29, padding: 8, borderRadius: 9 }}>
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                                        <Text style={{ fontSize: 12, color: 'black', fontWeight: 'bold' }}>{item.title}</Text>
-                                        <Text style={{ fontSize: 12, color: 'black', fontWeight: 'bold' }}>{item.date}</Text>
-                                    </View>
-                                    <Text style={{ fontSize: 12, color: 'black' }}>{item.description}</Text>
-                                </TouchableOpacity>
-                            </View>
-                        )
-                    }}
-                    ListHeaderComponent={Notes}
-                />
-
-            </View>
-            <View>
-                <Image source={require('../../assets/icons/icons8-add-100.png')} style={{ width: 20, height: 20 }} />
-            </View>
-        </View>
+        </View >
     );
 };
 
 export default MainScreen;
 const styles = StyleSheet.create({
-    page: {
+    bottom: {
         flex: 1,
-        backgroundColor: '#f1f1f1',
-        paddingTop: 20,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        backgroundColor: '#D0D0DC',
         padding: 20,
-        paddingHorizontal: 20,
-    },
+        height: '100%',
+
+    }
+
 });
