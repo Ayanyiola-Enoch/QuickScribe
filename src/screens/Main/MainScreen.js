@@ -86,7 +86,7 @@ const MainScreen = ({ navigation }) => {
                         return (
                             <View style={{ marginTop: 27, paddingHorizontal: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                                 <TouchableOpacity style={{ alignItems: 'center' }}>
-                                    <View style={{ borderWidth: 2, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
+                                    <View style={{ borderWidth: 1, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
                                         <Image source={item.icon} style={{ width: 24, height: 24 }} />
                                     </View>
                                     <View>
@@ -94,7 +94,7 @@ const MainScreen = ({ navigation }) => {
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={{ alignItems: 'center' }}>
-                                    <View style={{ borderWidth: 2, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
+                                    <View style={{ borderWidth: 1, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
                                         <Image source={item.workImage} style={{ width: 24, height: 24 }} />
                                     </View>
                                     <View>
@@ -102,15 +102,15 @@ const MainScreen = ({ navigation }) => {
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={{ alignItems: 'center' }}>
-                                    <View style={{ borderWidth: 2, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
+                                    <View style={{ borderWidth: 1, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
                                         <Image source={item.healthImage} style={{ width: 24, height: 24 }} />
                                     </View>
                                     <View>
                                         <Text style={{ fontSize: 12, fontWeight: '700', color: 'black', }}>{item.title3}</Text>
                                     </View>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={{ alignItems: 'center' }}>
-                                    <View style={{ borderWidth: 2, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Add')} style={{ alignItems: 'center' }}>
+                                    <View style={{ borderWidth: 1, borderRadius: 7, width: 40, alignItems: 'center', justifyContent: 'center', height: 40 }}>
                                         <Image source={item.addImage} style={{ width: 24, height: 24 }} />
                                     </View>
                                     <View>
@@ -127,8 +127,8 @@ const MainScreen = ({ navigation }) => {
                 <FlatList data={addNote}
                     renderItem={({ item }) => {
                         return (
-                            <View style={{ marginBottom: 13 }}>
-                                <TouchableOpacity style={{ borderWidth: 2, marginTop: 29, padding: 8, borderRadius: 9 }}>
+                            <View style={{ marginBottom: 15 }}>
+                                <TouchableOpacity style={{ borderWidth: 1, marginTop: 29, padding: 8, borderRadius: 9 }}>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                                         <Text style={{ fontSize: 12, color: 'black', fontWeight: 'bold' }}>{item.title}</Text>
                                         <Text style={{ fontSize: 12, color: 'black', fontWeight: 'bold' }}>{item.date}</Text>
@@ -143,7 +143,7 @@ const MainScreen = ({ navigation }) => {
 
             </View>
             <View>
-
+                <Image source={require('../../assets/icons/icons8-add-100.png')} style={{ width: 20, height: 20 }} />
             </View>
         </View>
     );
