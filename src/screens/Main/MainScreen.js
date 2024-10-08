@@ -77,7 +77,7 @@ const MainScreen = ({ navigation }) => {
                     <View style={{ flexDirection: 'row', alignItems: 'center', }}>
                         <View style={{ borderWidth: 1, borderRadius: 19, width: 280, height: 38, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
                             <Image source={require('../../assets/icons/icons8-search-100.png')} style={{ width: 19, height: 19, marginRight: 10 }} />
-                            <TextInput placeholder="Search Notes" placeholderTextColor="#858585" style={{ fontSize: 13, color: 'black', paddingVertical: 0 }} />
+                            <TextInput placeholder="Search Notes" placeholderTextColor="#858585" style={{ fontSize: 12, color: 'black', paddingVertical: 0 }} />
                         </View>
 
                         <TouchableOpacity style={{ marginLeft: 10 }}>
@@ -86,28 +86,89 @@ const MainScreen = ({ navigation }) => {
                     </View>
 
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 13 }}>
-                        <TouchableOpacity style={{ marginTop: 19, justifyContent: 'center', borderWidth: 1, alignItems: 'center', borderRadius: 19, width: 70, height: 34, backgroundColor: 'black' }}>
-                            <Text style={{ fontSize: 13, fontWeight: '600', color: 'white', }}>Notes</Text>
+                        <TouchableOpacity style={{ marginTop: 19, justifyContent: 'center', borderWidth: 1, alignItems: 'center', borderRadius: 19, width: 63, height: 31, backgroundColor: 'black' }}>
+                            <Text style={{ fontSize: 12, fontWeight: '600', color: 'white', }}>Notes</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={{ marginTop: 19, justifyContent: 'center', borderWidth: 1, alignItems: 'center', borderRadius: 19, width: 70, height: 34, backgroundColor: 'black' }}>
-                            <Text style={{ fontSize: 13, fontWeight: '600', color: 'white', }}>Notes</Text>
+                        <TouchableOpacity style={{ marginTop: 19, justifyContent: 'center', borderWidth: 1, alignItems: 'center', borderRadius: 19, width: 63, height: 31, backgroundColor: 'black' }}>
+                            <Text style={{ fontSize: 12, fontWeight: '600', color: 'white', }}>Notes</Text>
                         </TouchableOpacity>
                     </View>
 
                 </View>
 
-                <View style={styles.bottom}>
-                    <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity style={{ borderRadius: 19, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#9747ff', width: 93, height: 34 }}>
-                            <Image source={require('../../assets/icons/icons8-add-100.png')} style={{ width: 12, height: 12, tintColor: 'white' }} />
-                            <Text style={{ marginLeft: 3, fontSize: 13, color: 'white' }}>New note</Text>
-                        </TouchableOpacity>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <Image source={require('../../assets/icons/icons8-add-note-100.png')} style={{ width: 25, height: 25, }} />
-                            <Image source={require('../../assets/icons/icons8-sort-amount-up-reversed-100.png')} style={{ width: 25, height: 25 }} />
-                        </View>
+                {/* bottom view with background */}
 
+                <View style={styles.bottom}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Add')} style={{ borderRadius: 19, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#9747ff', width: 90, height: 32 }}>
+                            <Image source={require('../../assets/icons/icons8-add-100.png')} style={{ width: 12, height: 12, tintColor: 'white' }} />
+                            <Text style={{ marginLeft: 3, fontSize: 12, color: 'white' }}>New note</Text>
+                        </TouchableOpacity>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 30 }}>
+                            <TouchableOpacity>
+                                <Image source={require('../../assets/icons/icons8-add-note-100.png')} style={{ width: 21, height: 21, }} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image source={require('../../assets/icons/icons8-sort-amount-up-reversed-100.png')} style={{ width: 21, height: 21 }} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image source={require('../../assets/icons/icons8-list-100.png')} style={{ width: 21, height: 21 }} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                    {/* notes added */}
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+
+                        <TouchableOpacity style={{ width: 158, borderRadius: 20, marginTop: 30, padding: 10, height: 200, backgroundColor: 'white' }}>
+                            <Text style={{ marginBottom: 10, fontSize: 12, color: 'black', fontWeight: 'bold' }}>Tasks for today</Text>
+                            <Text style={{ fontSize: 12, color: 'grey', width: 120 }}>Go on a nature walk or hikeand observe the plants, animals..</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 9 }}>
+                                <View>
+                                    <Image source={require('../../assets/icons/icons8-clock-100.png')} style={{ width: 23, height: 23 }} />
+                                </View>
+                                <TouchableOpacity style={{ backgroundColor: '#D0D0DC', width: 115, borderRadius: 40, height: 23, alignItems: 'center' }}>
+                                    <Text style={{ fontSize: 12, color: 'grey' }}>14 Sept. 8:20 am</Text>
+                                </TouchableOpacity>
+                            </View>
+                            < View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <Image source={require('../../assets/icons/icons8-pin-100.png')} style={{ width: 16, height: 16 }} />
+                                <Text style={{ fontSize: 12, color: 'grey' }}>Today</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={{ width: 150, borderRadius: 20, marginTop: 30, padding: 10, height: 90, backgroundColor: 'white' }}>
+                            <Text style={{ marginBottom: 10, fontSize: 12, color: 'black', fontWeight: 'bold' }}>Work</Text>
+
+                            <View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <Image source={require('../../assets/icons/icons8-pin-100.png')} style={{ width: 16, height: 16 }} />
+                                <Text style={{ fontSize: 12, color: 'grey' }}>Today</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+
+                        <TouchableOpacity style={{ width: 150, borderRadius: 20, marginTop: 30, padding: 10, height: 90, backgroundColor: 'white' }}>
+                            <Text style={{ marginBottom: 10, fontSize: 12, color: 'black', fontWeight: 'bold' }}>Shopping lists</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 9 }}>
+                                <View style={{ sborderRadius: 40, height: 23, alignItems: 'center' }}>
+                                    <Text style={{ fontSize: 12, color: 'grey' }}>6 notes</Text>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={{ width: 158, borderRadius: 20, marginTop: 30, padding: 10, height: 200, backgroundColor: 'white' }}>
+                            <Text style={{ marginBottom: 10, fontSize: 12, color: 'black', fontWeight: 'bold' }}>Daily Note</Text>
+                            <Text style={{ marginBottom: 10, fontSize: 12, color: 'black', fontWeight: 'bold' }}>Daily Note</Text>
+
+                            <View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <Image source={require('../../assets/icons/icons8-pin-100.png')} style={{ width: 16, height: 16 }} />
+                                <Text style={{ fontSize: 12, color: 'grey' }}>Today</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </ScrollView >
@@ -124,8 +185,8 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 20,
         backgroundColor: '#D0D0DC',
         padding: 20,
-        height: '100%',
+        height: 700,
 
-    }
+    },
 
 });

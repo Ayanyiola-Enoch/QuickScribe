@@ -11,7 +11,7 @@ const AddScreen = ({ navigation }) => {
                     <Image source={require('../../assets/icons/icons8-back-24.png')} style={{ width: 30, height: 30 }} />
                 </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 10 }}>
-                    <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Add</Text>
+                    <TextInput placeholder='Add' style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }} />
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate('Main')}>
                     <Image source={require('../../assets/icons/icons8-done-100.png')} style={{ width: 24, height: 24 }} />
@@ -28,13 +28,14 @@ const AddScreen = ({ navigation }) => {
                 </View>
 
             </View>
+
             <View>
 
                 <View style={{ marginTop: 20, marginBottom: 9 }}>
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Description</Text>
                 </View>
                 <View style={{ borderWidth: 1, borderRadius: 9, height: 270 }}>
-                    <TextInput placeholder='Enter Title' placeholderTextColor={'grey'} style={{ paddingHorizontal: 10 }} />
+                    <TextInput placeholder='Enter Description' multiline={true} placeholderTextColor={'grey'} style={{ paddingHorizontal: 10, }} />
                 </View>
 
             </View>
