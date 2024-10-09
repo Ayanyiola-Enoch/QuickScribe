@@ -7,11 +7,11 @@ const AddScreen = ({ navigation }) => {
     return (
         <View style={styles.page}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <TouchableOpacity style={{ width: 39, height: 39, borderWidth: 1, borderColor: '#B3B7C2', alignItems: 'center', justifyContent: 'center', borderRadius: 9 }}>
+                <TouchableOpacity onPress={() => navigation.navigate('Main')} style={{ width: 39, height: 39, borderWidth: 1, borderColor: '#B3B7C2', alignItems: 'center', justifyContent: 'center', borderRadius: 9 }}>
                     <Image source={require('../../assets/icons/icons8-back-24.png')} style={{ width: 30, height: 30 }} />
                 </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 10 }}>
-                    <TextInput placeholder='Add' style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }} />
+                    <TextInput placeholder='Title' style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }} />
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate('Main')}>
                     <Image source={require('../../assets/icons/icons8-done-100.png')} style={{ width: 24, height: 24 }} />
@@ -21,21 +21,10 @@ const AddScreen = ({ navigation }) => {
             <View>
 
                 <View style={{ marginTop: 20, marginBottom: 9 }}>
-                    <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Title</Text>
-                </View>
-                <View style={{ borderWidth: 1, borderRadius: 9, height: 41 }}>
-                    <TextInput placeholder='Enter Title' placeholderTextColor={'grey'} style={{ paddingHorizontal: 10 }} />
-                </View>
-
-            </View>
-
-            <View>
-
-                <View style={{ marginTop: 20, marginBottom: 9 }}>
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Description</Text>
                 </View>
-                <View style={{ borderWidth: 1, borderRadius: 9, height: 270 }}>
-                    <TextInput placeholder='Enter Description' multiline={true} placeholderTextColor={'grey'} style={{ paddingHorizontal: 10, }} />
+                <View style={{ borderRadius: 9, height: 370 }}>
+                    <TextInput placeholder='Enter Description' multiline={true} placeholderTextColor={'grey'} />
                 </View>
 
             </View>
