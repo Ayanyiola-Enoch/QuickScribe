@@ -6,7 +6,7 @@ const WelcomeScreen = ({ navigation }) => {
 
   {/*setting useState */ }
 
-  const [newInput, setNewInput] = useState('')
+  const [newInput, setNewInput] = useState('');
   console.log('setNewInput', newInput); // showing inputted value
 
   const submit = () => {

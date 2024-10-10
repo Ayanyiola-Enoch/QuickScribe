@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TextInput, ScrollView, Image, FlatList, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Header from '../../components/Header/Header';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -53,12 +54,19 @@ const addNote = [
     },
 
 ];
-const MainScreen = ({ navigation }) => {
+const MainScreen = ({ route }) => {
+    const navigation = useNavigation();
+
+    console.log('this is route:', route);
+
     return (
         <View>
             {/* Search Space */}
 
-            <View style={{ marginBottom: 22, marginTop: 10, backgroundColor: '#f1f1f1', padding: 20, height: 100 }}>
+            <View style={{ marginBottom: 22, backgroundColor: '#f1f1f1', padding: 20, height: 100 }}>
+                <View style={{ marginBottom: 10, paddingHorizontal: 10 }}>
+                    <Text style={{ color: 'black', fontWeight: '600', fontSize: 14 }}>Hello {route.params.newInput}</Text>
+                </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', }}>
                     <View style={{ borderWidth: 1, borderRadius: 19, width: 280, height: 38, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
                         <Image source={require('../../assets/icons/icons8-search-100.png')} style={{ width: 19, height: 19, marginRight: 10 }} />
@@ -70,15 +78,6 @@ const MainScreen = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 13 }}>
-                    <TouchableOpacity style={{ marginTop: 19, justifyContent: 'center', borderWidth: 1, alignItems: 'center', borderRadius: 19, width: 63, height: 31, backgroundColor: 'black' }}>
-                        <Text style={{ fontSize: 12, fontWeight: '600', color: 'white', }}>Notes</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={{ marginTop: 19, justifyContent: 'center', borderWidth: 1, alignItems: 'center', borderRadius: 19, width: 63, height: 31, backgroundColor: 'black' }}>
-                        <Text style={{ fontSize: 12, fontWeight: '600', color: 'white', }}>Notes</Text>
-                    </TouchableOpacity>
-                </View>
 
             </View>
 

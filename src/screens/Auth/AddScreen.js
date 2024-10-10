@@ -1,33 +1,52 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
+import { useNavigation } from '@react-navigation/native';
 
+const AddScreen = ({ route }) => {
 
-const AddScreen = ({ navigation }) => {
+    const navigation = useNavigation();
+    console.log('route', route);
+    const [newTitle, setNewTitle] = useState('');
+    console.log('title', newTitle);
+    console.log('description', newDescribe);
+
+    const [newDescribe, setNewDescribe] = useState('');
+
+    const done = () => {
+        navigation.navigate('Main', { newTitle, newDescribe });
+    };
+
     return (
         <View style={styles.page}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <TouchableOpacity onPress={() => navigation.navigate('Main')} style={{ width: 39, height: 39, borderWidth: 1, borderColor: '#B3B7C2', alignItems: 'center', justifyContent: 'center', borderRadius: 9 }}>
-                    <Image source={require('../../assets/icons/icons8-back-24.png')} style={{ width: 30, height: 30 }} />
-                </TouchableOpacity>
-                <View style={{ flex: 1, marginLeft: 10 }}>
-                    <TextInput placeholder='Title' style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }} />
+                <View style={{ flex: 1 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Main')} style={{ width: 39, height: 39, borderWidth: 1, borderColor: '#B3B7C2', alignItems: 'center', justifyContent: 'center', borderRadius: 9 }}>
+                        <Image source={require('../../assets/icons/icons8-back-24.png')} style={{ width: 30, height: 30 }} />
+                    </TouchableOpacity>
                 </View>
-                <TouchableOpacity onPress={() => navigation.navigate('Main')}>
-                    <Image source={require('../../assets/icons/icons8-done-100.png')} style={{ width: 24, height: 24 }} />
+                <TouchableOpacity onPress={() => done()}>
+                    <Image source={require('../../assets/icons/icons8-done-100.png')} style={{ width: 20, height: 20 }} />
                 </TouchableOpacity>
             </View>
 
             <View>
 
+                <View style={{ marginTop: 20, }} >
+                    <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Title</Text>
+                </View>
+                <View style={[styles.container, { marginTop: 19, marginBottom: 9, height: 50 }]}>
+                    <TextInput placeholder='Enter Description' multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewTitle(kk)} />
+                </View>
                 <View style={{ marginTop: 20, marginBottom: 9 }}>
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Description</Text>
                 </View>
-                <View style={{ borderRadius: 9, height: 370 }}>
-                    <TextInput placeholder='Enter Description' multiline={true} placeholderTextColor={'grey'} />
+                <View style={styles.container}>
+                    <TextInput placeholder='Enter Description' multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewDescribe(kk)} />
                 </View>
 
             </View>
+
         </View>
     );
 };
@@ -42,4 +61,10 @@ const styles = StyleSheet.create({
         padding: 20,
         paddingHorizontal: 20,
     },
-});
+    container: {
+        borderRadius: 10,
+        marginTop: 9,
+        height: 400,
+        borderWidth: 1,
+    },
+})
