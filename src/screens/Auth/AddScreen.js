@@ -36,13 +36,13 @@ const AddScreen = ({ route }) => {
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Title</Text>
                 </View>
                 <View style={[styles.container, { marginTop: 19, marginBottom: 9, height: 50 }]}>
-                    <TextInput placeholder='Enter Description' multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewTitle(kk)} />
+                    <TextInput placeholder='Enter Title' style={{ marginLeft: 10 }} multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewTitle(kk)} />
                 </View>
                 <View style={{ marginTop: 20, marginBottom: 9 }}>
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Description</Text>
                 </View>
                 <View style={styles.container}>
-                    <TextInput placeholder='Enter Description' multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewDescribe(kk)} />
+                    <TextInput placeholder='Enter Description' style={{ marginLeft: 10 }} multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewDescribe(kk)} />
                 </View>
 
             </View>

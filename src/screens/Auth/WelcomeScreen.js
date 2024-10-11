@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const WelcomeScreen = ({ navigation }) => {
 
@@ -9,8 +10,14 @@ const WelcomeScreen = ({ navigation }) => {
   const [newInput, setNewInput] = useState('');
   console.log('setNewInput', newInput); // showing inputted value
 
-  const submit = () => {
-    navigation.navigate('Main', { newInput })
+  const submit = async () => {
+    try {
+      await AsyncStorage.setItem('input', newInput)
+      navigation.navigate('Main', { newInput })
+    }
+    catch (error) {
+      console.log('Error', error);
+    }
   };
 
   return (
