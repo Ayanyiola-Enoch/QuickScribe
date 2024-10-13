@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'reac
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AddScreen = ({ route }) => {
 
@@ -13,8 +14,14 @@ const AddScreen = ({ route }) => {
 
     const [newDescribe, setNewDescribe] = useState('');
 
-    const done = () => {
-        navigation.navigate('Main', { newTitle, newDescribe });
+    const done = async () => {
+        try {
+            await AsyncStorage.setItem('description', newDescribe)
+            navigation.navigate('Main', { newTitle, newDescribe });
+        }
+        catch (error) {
+            console.log('Error', error);
+        }
     };
 
     return (

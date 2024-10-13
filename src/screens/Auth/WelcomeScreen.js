@@ -14,6 +14,7 @@ const WelcomeScreen = ({ navigation }) => {
     try {
       await AsyncStorage.setItem('input', newInput)
       navigation.navigate('Main', { newInput })
+      console.log('Saved Succesfull')
     }
     catch (error) {
       console.log('Error', error);
@@ -39,6 +40,7 @@ const WelcomeScreen = ({ navigation }) => {
             <Image source={require('../../assets/icons/icons8-arrow-right-100.png')} style={{ width: 30, height: 30 }} />
           </TouchableOpacity>
         </View>
+
       </ScrollView>
     </View >
   );
