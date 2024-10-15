@@ -8,14 +8,20 @@ const AddScreen = ({ route }) => {
 
     const navigation = useNavigation();
     console.log('route', route);
+
     const [newTitle, setNewTitle] = useState('');
     console.log('title', newTitle);
     console.log('description', newDescribe);
 
     const [newDescribe, setNewDescribe] = useState('');
+    const [savedDescribe, setSavedDescribe] = useState('')
+
+
+    // saved the data for decription using AsyncStorage.. temporary storage
 
     const done = async () => {
         try {
+            await AsyncStorage.setItem('title', newTitle) //setting/ saving the title too
             await AsyncStorage.setItem('description', newDescribe)
             navigation.navigate('Main', { newTitle, newDescribe });
         }
@@ -24,39 +30,55 @@ const AddScreen = ({ route }) => {
         }
     };
 
-    return (
-        <View style={styles.page}>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <View style={{ flex: 1 }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Main')} style={{ width: 39, height: 39, borderWidth: 1, borderColor: '#B3B7C2', alignItems: 'center', justifyContent: 'center', borderRadius: 9 }}>
-                        <Image source={require('../../assets/icons/icons8-back-24.png')} style={{ width: 30, height: 30 }} />
-                    </TouchableOpacity>
-                </View>
-                <TouchableOpacity onPress={() => done()}>
-                    <Image source={require('../../assets/icons/icons8-done-100.png')} style={{ width: 20, height: 20 }} />
+    const saved = async () => {
+        try {
+            const get = await AsyncStorage.getItem('description');
+
+            console.log('the description is', get);
+
+
+            if (saved !== null) {
+                setSavedDescribe(value)
+            }
+        }
+        catch (error) {
+            console.log('the is is an error', error);
+        }
+    }
+}
+
+return (
+    <View style={styles.page}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ flex: 1 }}>
+                <TouchableOpacity onPress={() => navigation.navigate('Main')} style={{ width: 39, height: 39, borderWidth: 1, borderColor: '#B3B7C2', alignItems: 'center', justifyContent: 'center', borderRadius: 9 }}>
+                    <Image source={require('../../assets/icons/icons8-back-24.png')} style={{ width: 30, height: 30 }} />
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity onPress={() => done()}>
+                <Image source={require('../../assets/icons/icons8-done-100.png')} style={{ width: 20, height: 20 }} />
+            </TouchableOpacity>
+        </View>
 
-            <View>
+        <View>
 
-                <View style={{ marginTop: 20, }} >
-                    <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Title</Text>
-                </View>
-                <View style={[styles.container, { marginTop: 19, marginBottom: 9, height: 50 }]}>
-                    <TextInput placeholder='Enter Title' style={{ marginLeft: 10 }} multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewTitle(kk)} />
-                </View>
-                <View style={{ marginTop: 20, marginBottom: 9 }}>
-                    <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Description</Text>
-                </View>
-                <View style={styles.container}>
-                    <TextInput placeholder='Enter Description' style={{ marginLeft: 10 }} multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewDescribe(kk)} />
-                </View>
-
+            <View style={{ marginTop: 20, }} >
+                <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Title</Text>
+            </View>
+            <View style={[styles.container, { marginTop: 19, marginBottom: 9, height: 50 }]}>
+                <TextInput placeholder='Enter Title' style={{ marginLeft: 10 }} multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewTitle(kk)} />
+            </View>
+            <View style={{ marginTop: 20, marginBottom: 9 }}>
+                <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Description</Text>
+            </View>
+            <View style={styles.container}>
+                <TextInput placeholder='Enter Description' style={{ marginLeft: 10 }} multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewDescribe(kk)} />
             </View>
 
         </View>
-    );
-};
+
+    </View>
+);
 
 export default AddScreen;
 

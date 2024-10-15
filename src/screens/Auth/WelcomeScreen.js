@@ -10,16 +10,35 @@ const WelcomeScreen = ({ navigation }) => {
   const [newInput, setNewInput] = useState('');
   console.log('setNewInput', newInput); // showing inputted value
 
+  const [getInput, setGetInput] = useState('');
+
+  // Setting item i.e saving the item/data
+
   const submit = async () => {
     try {
       await AsyncStorage.setItem('input', newInput)
       navigation.navigate('Main', { newInput })
-      console.log('Saved Succesfull')
+      console.log('Saved Succesfully')
     }
     catch (error) {
       console.log('Error', error);
     }
   };
+
+
+
+
+  const handleGetInput = async () => {
+    try {
+      const input = await AsyncStorage.getItem('input'); //retrieved the data inputted
+      console.log('the input name is', input);
+      if (input !== null) {
+        setGetInput(value)
+      }
+    } catch (error) {
+      console.log('this is an error', error);
+    }
+  }
 
   return (
     <View style={styles.page}>
@@ -35,7 +54,10 @@ const WelcomeScreen = ({ navigation }) => {
           <Image source={require('../../assets/images/iamge-removebg-preview-removebg-preview.png')} style={{ width: '65%', height: 300 }} />
         </View>
         <View style={{ borderWidth: 1, borderRadius: 10, marginTop: 40, paddingHorizontal: 30, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-          <TextInput placeholder='Enter your name' placeholderTextColor={'#2f344c'} onChangeText={(kk) => setNewInput(kk)} />
+          <TextInput placeholder='Enter your name'
+            placeholderTextColor={'#2f344c'}
+            value={newInput}
+            onChangeText={(kk) => setNewInput(kk)} />
           <TouchableOpacity onPress={() => submit()}>
             <Image source={require('../../assets/icons/icons8-arrow-right-100.png')} style={{ width: 30, height: 30 }} />
           </TouchableOpacity>
