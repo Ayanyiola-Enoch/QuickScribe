@@ -7,6 +7,7 @@ import MainScreen from '../screens/Auth/MainScreen';
 import ShowScreen from '../screens/Auth/ShowScreen';
 import ThanksScreen from '../screens/Auth/ThanksScreen';
 import SplashScreen from '../screens/SplashScreen';
+import IntroSlider from '../screens/IntroSlider';
 
 const AuthStack = () => {
     const Stack = createNativeStackNavigator();
@@ -18,6 +19,7 @@ const AuthStack = () => {
             <Stack.Screen name="Add" component={AddScreen} />
             <Stack.Screen name="Show" component={ShowScreen} />
             <Stack.Screen name="Thanks" component={ThanksScreen} />
+            <Stack.Screen name="Intro" component={IntroSlider} />
         </Stack.Navigator>
     );
 }

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
 import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -12,8 +12,9 @@ const SplashScreen = () => {
 
     return (
         <View style={styles.page}>
+            <StatusBar barStyle={'light-content'} backgroundColor={'purple'} />
             <View style={styles.container}>
-                <Image source={require('../assets/images/log2-removebg-preview.png')} style={{ width: 20, height: 20 }} />
+                <Image source={require('../assets/images/log2-removebg-preview.png')} style={{ width: 30, height: 30 }} />
                 <Text style={styles.text}>QuickScribe</Text>
             </View>
         </View>
@@ -31,11 +32,12 @@ const styles = StyleSheet.create({
     },
 
     container: {
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
     },
     text: {
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: 'bold',
         color: 'white'
     }

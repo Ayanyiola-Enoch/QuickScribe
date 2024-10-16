@@ -8,6 +8,7 @@ import MainScreen from './src/screens/Auth/MainScreen';
 import ShowScreen from './src/screens/Auth/ShowScreen';
 import ThanksScreen from './src/screens/Auth/ThanksScreen';
 import SplashScreen from './src/screens/SplashScreen';
+import IntroSlider from './src/screens/IntroSlider';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ const App = () => {
         <Stack.Screen name="Add" component={AddScreen} />
         <Stack.Screen name="Show" component={ShowScreen} />
         <Stack.Screen name="Thanks" component={ThanksScreen} />
+        <Stack.Screen name="Intro" component={IntroSlider} />
       </Stack.Navigator>
     </NavigationContainer>
   );
