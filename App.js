@@ -16,12 +16,12 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }} >
         <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Intro" component={IntroSlider} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="Main" component={MainScreen} />
         <Stack.Screen name="Add" component={AddScreen} />
         <Stack.Screen name="Show" component={ShowScreen} />
         <Stack.Screen name="Thanks" component={ThanksScreen} />
-        <Stack.Screen name="Intro" component={IntroSlider} />
       </Stack.Navigator>
     </NavigationContainer>
   );

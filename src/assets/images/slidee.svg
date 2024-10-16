@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    <!-- First Screen Illustration (Left Side) -->
+    <g transform="translate(100, 50)">
+        <!-- Notepad -->
+        <rect x="50" y="50" width="160" height="200" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+        <line x1="70" y1="90" x2="190" y2="90" stroke="#cccccc" stroke-width="1"/>
+        <line x1="70" y1="120" x2="190" y2="120" stroke="#cccccc" stroke-width="1"/>
+        <line x1="70" y1="150" x2="190" y2="150" stroke="#cccccc" stroke-width="1"/>
+        <line x1="70" y1="180" x2="190" y2="180" stroke="#cccccc" stroke-width="1"/>
+        
+        <!-- Floating Thought Bubbles -->
+        <g fill="#6c63ff" opacity="0.8">
+            <circle cx="270" cy="80" r="20"/>
+            <circle cx="240" cy="150" r="15"/>
+            <circle cx="290" cy="200" r="25"/>
+        </g>
+        
+        <!-- Floating Icons -->
+        <g fill="none" stroke="#333333" stroke-width="2">
+            <path d="M260,60 l10,10 l-10,10"/>
+            <path d="M220,140 l8,8 l8,-8"/>
+            <path d="M280,180 l12,-12"/>
+        </g>
+    </g>
+
+    <!-- Second Screen Illustration (Right Side) -->
+    <g transform="translate(500, 50)">
+        <!-- Folder Structure -->
+        <g fill="#f0f0f0" stroke="#333333" stroke-width="2">
+            <path d="M50,50 h160 v140 h-160 z"/>
+            <rect x="60" y="70" width="140" height="30" rx="5"/>
+            <rect x="60" y="110" width="140" height="30" rx="5"/>
+            <rect x="60" y="150" width="140" height="30" rx="5"/>
+        </g>
+
+        <!-- Tags -->
+        <g font-family="Arial" font-size="12" fill="#6c63ff">
+            <text x="70" y="90">#ideas</text>
+            <text x="130" y="90">#work</text>
+            <text x="70" y="130">#personal</text>
+            <text x="140" y="130">#goals</text>
+            <text x="70" y="170">#projects</text>
+        </g>
+
+        <!-- Search Icon -->
+        <circle cx="240" cy="100" r="15" fill="none" stroke="#333333" stroke-width="2"/>
+        <line x1="250" y1="110" x2="260" y2="120" stroke="#333333" stroke-width="2"/>
+    </g>
+</svg>

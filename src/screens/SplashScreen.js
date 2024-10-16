@@ -6,15 +6,15 @@ const SplashScreen = () => {
     const navigation = useNavigation();
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.replace('Welcome');
-        }, 5000)
+            navigation.replace('Intro');
+        }, 3000)
     }, [])
 
     return (
         <View style={styles.page}>
             <StatusBar barStyle={'light-content'} backgroundColor={'purple'} />
             <View style={styles.container}>
-                <Image source={require('../assets/images/log2-removebg-preview.png')} style={{ width: 30, height: 30 }} />
+                <Image source={require('../assets/images/log2-removebg-preview.png')} style={{ width: 36, height: 36 }} />
                 <Text style={styles.text}>QuickScribe</Text>
             </View>
         </View>
