@@ -4,12 +4,30 @@ import { useNavigation } from '@react-navigation/native';
 
 const SplashScreen = () => {
     const navigation = useNavigation();
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            navigation.replace('Intro');
-        }, 3000)
-    }, [])
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         navigation.replace('Intro');
+    //     }, 3000)
+    // }, [])
 
+    const handleGetInput = async () => {
+        try {
+            const input = await AsyncStorage.getItem('input'); //retrieved the data inputted
+            console.log('the input name is', input);
+            navigation.replace('Main')
+            // if (input !== null) {
+            //     setGetInput(value)
+            // }
+        } catch (error) {
+            console.log('this is an error', error);
+        }
+    }
+
+
+
+    useEffect(() => {
+        handleGetInput()
+    }, [])
     return (
         <View style={styles.page}>
             <StatusBar barStyle={'light-content'} backgroundColor={'purple'} />

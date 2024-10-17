@@ -29,18 +29,6 @@ const WelcomeScreen = () => {
 
 
 
-  const handleGetInput = async () => {
-    try {
-      const input = await AsyncStorage.getItem('input'); //retrieved the data inputted
-      console.log('the input name is', input);
-      if (input !== null) {
-        setGetInput(value)
-      }
-    } catch (error) {
-      console.log('this is an error', error);
-    }
-  }
-
   return (
     <View style={styles.page}>
       <ScrollView>
