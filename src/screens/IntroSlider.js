@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, StatusBar, Image, Touchable, TouchableOpacity, ImageBackground } from 'react-native';
 import React from 'react';
+import { FONTS, COLORS, icons, images, SIZES } from '../constants';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { useNavigation } from '@react-navigation/native';
 
@@ -13,8 +14,8 @@ const slides = [
     },
     {
         key: 2,
-        title: 'Capture Every Thought',
-        text: 'Turn ideas into action with quick, beautiful notes that sync across all your devices',
+        title: 'Organize Your Way"',
+        text: 'Create folders, add tags, or use search to find exactly what you need, when you need it',
         image: require('../assets/images/Slide1.png'),
     },
 
@@ -22,6 +23,7 @@ const slides = [
 
 const IntroSlider = () => {
     const navigation = useNavigation();
+    const handleNext = () => navigation.navigate('Welcome');
 
     const renderItem = ({ item }) => {
 
@@ -46,8 +48,16 @@ const IntroSlider = () => {
 
     const renderDoneButton = () => {
         return (
-            <TouchableOpacity onPress={() => navigation.navigate(renderDoneButton)} style={styles.button}>
+            <TouchableOpacity onPress={() => handleNext()} style={styles.button}>
                 <Text style={styles.butText}>Done</Text>
+            </TouchableOpacity>
+        )
+    };
+
+    const renderSkipButton = () => {
+        return (
+            <TouchableOpacity onPress={() => handleNext()} style={styles.button}>
+                <Text style={styles.butText}>Skip</Text>
             </TouchableOpacity>
         )
     };
@@ -60,9 +70,11 @@ const IntroSlider = () => {
             data={slides}
             renderItem={renderItem}
             renderNextButton={renderNextButton}
+            renderSkipButton={renderSkipButton}
             renderDoneButton={renderDoneButton}
             dotStyle={styles.dot}
             activeDotStyle={styles.activeDot}
+            showSkipButton={true}
         />
 
     )
@@ -75,11 +87,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#f1f1f1',
         paddingTop: 20,
-        // padding: 20,
         paddingHorizontal: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        // marginBottom: 20,
     },
     text: {
         fontSize: 13,
@@ -102,21 +112,15 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     dot: {
-
         width: 8,
         height: 8,
-        borderRadius: 4,
         backgroundColor: 'grey',
         marginHorizontal: 8,
-        // marginTop: 10,
     },
     activeDot: {
-
         width: 8,
         height: 8,
-        borderRadius: 4,
         marginHorizontal: 8,
-        // marginTop: 10,
         backgroundColor: 'purple',
     }
 });

@@ -2,9 +2,10 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView 
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
-const WelcomeScreen = ({ navigation }) => {
-
+const WelcomeScreen = () => {
+  const navigation = useNavigation();
   {/*setting useState */ }
 
   const [newInput, setNewInput] = useState('');
