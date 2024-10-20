@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import { images } from '../../constants';
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
@@ -40,7 +41,7 @@ const WelcomeScreen = () => {
           <Text style={{ color: '#2F344C', fontSize: 13, fontWeight: '400' }}>Welcome to QuickScribe: Where Your Thoughts Find a Home!</Text>
         </View>
         <View style={{ marginTop: 13, alignItems: 'center' }}>
-          <Image source={require('../../assets/images/iamge-removebg-preview-removebg-preview.png')} style={{ width: '65%', height: 300 }} />
+          <Image source={images.welcome} style={{ width: '65%', height: 300 }} />
         </View>
         <View style={{ borderWidth: 1, borderRadius: 10, marginTop: 40, paddingHorizontal: 30, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
           <TextInput placeholder='Enter your name'

@@ -18,6 +18,7 @@ export const COLORS = {
     linear: "#CDE1FF",
     offwhite: "#FAF9F6",
     grey: "#F8FCFF",
+    purple: "purple"
 
 };
 

@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
 import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { SIZES, images, COLORS, FONTS } from '../constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SplashScreen = () => {
     const navigation = useNavigation();
@@ -14,7 +16,7 @@ const SplashScreen = () => {
         try {
             const input = await AsyncStorage.getItem('input'); //retrieved the data inputted
             console.log('the input name is', input);
-            navigation.replace('Main')
+            navigation.replace('Welcome')
             // if (input !== null) {
             //     setGetInput(value)
             // }
@@ -27,12 +29,15 @@ const SplashScreen = () => {
 
     useEffect(() => {
         handleGetInput()
+        setTimeout(() => {
+            3000
+        })
     }, [])
     return (
         <View style={styles.page}>
             <StatusBar barStyle={'light-content'} backgroundColor={'purple'} />
             <View style={styles.container}>
-                <Image source={require('../assets/images/log2-removebg-preview.png')} style={{ width: 36, height: 36 }} />
+                <Image source={images.logo} style={{ width: SIZES.h1 * 1.35, height: SIZES.h1 * 1.35 }} />
                 <Text style={styles.text}>QuickScribe</Text>
             </View>
         </View>
@@ -44,7 +49,7 @@ export default SplashScreen;
 const styles = StyleSheet.create({
     page: {
         flex: 1,
-        backgroundColor: 'purple',
+        backgroundColor: COLORS.background,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -55,8 +60,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     text: {
-        fontSize: 20,
+        ...FONTS.h2,
         fontWeight: 'bold',
-        color: 'white'
+        color: COLORS.purple
     }
 });

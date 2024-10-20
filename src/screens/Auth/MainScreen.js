@@ -65,7 +65,7 @@ const MainScreen = ({ route }) => {
 
             <View style={{ marginBottom: 22, backgroundColor: '#f1f1f1', padding: 20, height: 100 }}>
                 <View style={{ marginBottom: 10, paddingHorizontal: 10 }}>
-                    <Text style={{ color: 'black', fontWeight: '600', fontSize: 14 }}>Hello {route.params.newInput}</Text>
+                    <Text style={{ color: 'black', fontWeight: '600', fontSize: 14 }}>Hello{route.params.newInput}</Text>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', }}>
                     <View style={{ borderWidth: 1, borderRadius: 19, width: 280, height: 38, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
