@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, Image, StatusBar } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, StatusBar, TouchableOpacity } from 'react-native'
 import React from 'react';
 import { FONTS, COLORS, images, SIZES } from '../../constants';
 import { useNavigation } from '@react-navigation/native'
@@ -16,15 +16,18 @@ const Class = () => {
         <View style={styles.page}>
             <StatusBar barStyle={'light-content'} backgroundColor={COLORS.purple} />
             <View style={styles.container}>
-                <Text style={{ ...FONTS.h3, marginBottom: 18 }}>Products</Text>
-                <FlatList data={data} renderItem={({ item }) => {
-                    return (
-                        <View style={styles.box}>
-                            <Text style={styles.text}>Class</Text>
-                            <Image source={item.image} style={{ width: 50, height: 50 }} />
-                        </View>
-                    );
-                }} />
+                <Text style={{ ...FONTS.h3, fontWeight: 'bold', marginBottom: 18 }}>Products</Text>
+                <FlatList data={data}
+                    numColumns={2}
+                    columnWrapperStyle={{ justifyContent: 'space-between' }}
+                    renderItem={({ item }) => {
+                        return (
+                            <TouchableOpacity style={styles.box}>
+                                <Text style={styles.text}>{item.name}</Text>
+                                <Image source={item.image} style={{ width: 50, height: 50 }} />
+                            </TouchableOpacity>
+                        );
+                    }} />
             </View>
         </View>
     );
@@ -45,14 +48,14 @@ const styles = StyleSheet.create({
     //     borderWidth: 1,
     // },
     text: {
-        ...FONTS.h3,
+        ...FONTS.h4,
         // textAlign: 'center',
 
     },
     box: {
         borderWidth: 1,
         marginTop: 19,
-        width: 300,
+        width: 150,
         height: 100,
         borderRadius: 8,
         padding: 20
