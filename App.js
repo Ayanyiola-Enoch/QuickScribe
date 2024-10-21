@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native';
 import WelcomeScreen from './src/screens/Auth/WelcomeScreen';
@@ -14,6 +15,8 @@ import Class from './src/screens/Auth/Class';
 const App = () => {
   const Stack = createNativeStackNavigator();
   return (
+
+
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }} >
         <Stack.Screen name="Splash" component={SplashScreen} />

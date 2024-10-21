@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, TextInput, ScrollView, Image, FlatList, TouchableOpacity } from 'react-native';
 import React from 'react';
-import Header from '../../components/Header/Header';
 import { useNavigation } from '@react-navigation/native';
-
+import Toast from 'react-native-toast-message';
 
 
 const addNote = [
@@ -90,7 +89,7 @@ const MainScreen = ({ route }) => {
                         <Text style={{ marginLeft: 3, fontSize: 12, color: 'white' }}>New note</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 30 }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Class')}>
                             <Image source={require('../../assets/icons/icons8-add-note-100.png')} style={{ width: 21, height: 21, }} />
                         </TouchableOpacity>
                         <TouchableOpacity>

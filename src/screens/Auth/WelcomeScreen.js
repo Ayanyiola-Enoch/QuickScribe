@@ -2,8 +2,9 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView,
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import toast from 'react-simple-toasts';
-
+// import Toast from 'react-native-toast-message';
+// import Toast from 'react-simple-toasts';
+import Toast from 'react-native-toast-message';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, images } from '../../constants';
 
@@ -21,8 +22,16 @@ const WelcomeScreen = () => {
   const submit = async () => {
     try {
       await AsyncStorage.setItem('input', newInput);
+      // Toast.show({
+      //   type: 'success',
+      //   text1: 'Hello',
+      //   text2: 'This is some something 👋'
+      // });
+      Toast.show('This is a toast that can be dismissed (iOS only).', Toast.LONG, {
+        tapToDismissEnabled: true,
+      });
+
       navigation.replace('Main', { newInput });
-      // toast('Logged In Successfully'),
       console.log('Saved Succesfully');
     }
     catch (error) {

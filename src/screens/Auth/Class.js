@@ -1,48 +1,95 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
-import { FlatList } from 'react-native-gesture-handler';
-import { FONTS, images } from '../../constants';
-import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const Class = () => {
     const navigation = useNavigation();
-    const renderItem = ({ item }) => {
-        return (
-            <View style={styles.page}>
-                <View style={styles.container}>
-                    <Text style={styles.text}>Products</Text>
-                    <View>
-                        <Image source={{ uri: images.imageUrl }} style={{}} />
-                    </View>
-                </View>
-
-            </View>
-
-        );
-    }
-
     return (
-        <FlatList renderItem={renderItem}
-            numColumns={3}
-            columnWrapperStyle={{ justifyContent: 'space-between' }} />
+        <View style={styles.page}>
+            <View style={styles.container}>
+                <Text style={styles.text}>Class</Text>
+            </View>
+        </View>
     );
-
 };
 
 export default Class;
 
-const styles = StyleSheet.create({
-    page: {
-        padding: 20,
-        paddingHorizontal: 20,
-        backgroundColor: '#f1f1f1',
-        flex: 1,
-    },
-    container: {
-        alignSelf: 'center',
-    },
-    text: {
-        ...FONTS.body,
-    }
+const styles = StyleSheet.create({});
 
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const FashionPage = () => {
+const [data, setData] = useState([]);
+
+console.log('sssssssss', data)
+
+// Fetch data from API (replace with your fashion API)
+const fetchData = async () => {
+    try {
+        const response = await fetch('https://fakestoreapi.com/products');
+        const json = await response.json();
+        setData(json.items); // Assuming API returns an array of fashion items
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+useEffect(() => {
+    fetchData();
+}, []);
+
+// Render each item
+const renderItem = ({ item }) => (
+    <View style={styles.itemContainer}>
+        <Image source={{ uri: item.image }} style={styles.image} />
+        <Text style={{ color: 'black', fontSize: 11 }}>{item.title}</Text>
+    </View>
+);
+
+return (
+    <View style={{ flex: 1, backgroundColor: 'white', }}>
+        <FlatList
+            data={data}
+            renderItem={renderItem}
+            numColumns={3} // Display items in 3 columns
+        />
+    </View>
+);
+// };
+
+// const styles = StyleSheet.create({
+//     itemContainer: {
+//         borderWidth: 1,
+//         width: SIZES.h1 * 4,
+//         height: SIZES.h1 * 4,
+//         borderColor: COLORS.black,
+//         alignItems: 'center',
+//     },
+//     image: {
+//         // width: 100,
+//         height: 150,
+//         resizeMode: 'cover',
+//     },
+//     title: {
+//         marginTop: 5,
+//         fontSize: 16,
+//     },
+// });
+
+// export default FashionPage;
