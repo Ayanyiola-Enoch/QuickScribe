@@ -14,7 +14,7 @@ const AddScreen = ({ route }) => {
     console.log('description', newDescribe);
 
     const [newDescribe, setNewDescribe] = useState('');
-    const [savedDescribe, setSavedDescribe] = useState('')
+    const [savedDescribe, setSavedDescribe] = useState('');
 
 
     // saved the data for decription using AsyncStorage.. temporary storage
@@ -22,7 +22,7 @@ const AddScreen = ({ route }) => {
     const done = async () => {
         try {
             await AsyncStorage.setItem('title', newTitle) //setting/ saving the title too
-            await AsyncStorage.setItem('description', newDescribe)
+            await AsyncStorage.setItem('description', newDescribe);
             navigation.navigate('Main', { newTitle, newDescribe });
         }
         catch (error) {
@@ -33,12 +33,10 @@ const AddScreen = ({ route }) => {
     const saved = async () => {
         try {
             const get = await AsyncStorage.getItem('description');
-
             console.log('the description is', get);
 
-
             if (saved !== null) {
-                setSavedDescribe(value)
+                setSavedDescribe();
             }
         }
         catch (error) {
@@ -66,13 +64,17 @@ const AddScreen = ({ route }) => {
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Title</Text>
                 </View>
                 <View style={[styles.container, { marginTop: 19, marginBottom: 9, height: 50 }]}>
-                    <TextInput placeholder='Enter Title' style={{ marginLeft: 10 }} multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewTitle(kk)} />
+                    <TextInput placeholder='Enter Title' style={{ marginLeft: 10 }}
+                        multiline={true} placeholderTextColor={'grey'}
+                        onChangeText={(kk) => setNewTitle(kk)} />
                 </View>
                 <View style={{ marginTop: 20, marginBottom: 9 }}>
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Description</Text>
                 </View>
                 <View style={styles.container}>
-                    <TextInput placeholder='Enter Description' style={{ marginLeft: 10 }} multiline={true} placeholderTextColor={'grey'} onChangeText={(kk) => setNewDescribe(kk)} />
+                    <TextInput placeholder='Enter Description' style={{ marginLeft: 10 }}
+                        multiline={true} placeholderTextColor={'grey'}
+                        onChangeText={(tt) => setNewDescribe(tt)} />
                 </View>
 
             </View>

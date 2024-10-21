@@ -1,4 +1,4 @@
-const logo = require('../assets/images/log2-removebg-preview.png');
+const logo = require('../assets/images/logo-removebg-preview.png');
 const welcome = require('../assets/images/iamge-removebg-preview-removebg-preview.png')
 const sliderOne = require('../assets/images/Slide1.png')
 const sliderTwo = require('../assets/images/Slide1.png')
@@ -16,6 +16,7 @@ export default {
     logo,
     sliderOne,
     sliderTwo,
+    welcome,
     // thumps,
     // fingerid,
     // men,

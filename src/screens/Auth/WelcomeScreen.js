@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView, StatusBar } from 'react-native'
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import toast from 'react-simple-toasts';
+
 import { useNavigation } from '@react-navigation/native';
-import { images } from '../../constants';
+import { COLORS, images } from '../../constants';
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
@@ -18,9 +20,10 @@ const WelcomeScreen = () => {
 
   const submit = async () => {
     try {
-      await AsyncStorage.setItem('input', newInput)
-      navigation.navigate('Main', { newInput })
-      console.log('Saved Succesfully')
+      await AsyncStorage.setItem('input', newInput);
+      navigation.replace('Main', { newInput });
+      toast('Logged In Successfully'),
+        console.log('Saved Succesfully');
     }
     catch (error) {
       console.log('Error', error);
@@ -32,6 +35,7 @@ const WelcomeScreen = () => {
 
   return (
     <View style={styles.page}>
+      <StatusBar barStyle={'light-content'} backgroundColor={COLORS.purple} />
       <ScrollView>
 
         <View style={{ alignItems: 'center', marginTop: 50 }}>

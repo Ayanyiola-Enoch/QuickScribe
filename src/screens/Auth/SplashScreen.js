@@ -16,15 +16,14 @@ const SplashScreen = () => {
         try {
             const input = await AsyncStorage.getItem('input'); //retrieved the data inputted
             console.log('the input name is', input);
-            navigation.replace('Welcome')
+            navigation.replace('Welcome');
             // if (input !== null) {
             //     setGetInput(value)
             // }
         } catch (error) {
             console.log('this is an error', error);
         }
-    }
-
+    };
 
 
     useEffect(() => {
@@ -33,18 +32,17 @@ const SplashScreen = () => {
             3000;
         });
     }), [];
+
     return (
         <View style={styles.page}>
             <StatusBar barStyle={'light-content'} backgroundColor={'purple'} />
             <View style={styles.container}>
-                <Image source={images.logo} style={{ width: SIZES.h1 * 1.35, height: SIZES.h1 * 1.35 }} />
+                <Image source={images.logo} style={{ width: SIZES.h1 * 1.9, height: SIZES.h1 * 1.35, marginTop: 6 }} />
                 <Text style={styles.text}>QuickScribe</Text>
             </View>
-            <View style={{ marginTop: 2, }}></View>
-            <Text style={{ backgroundColor: "red", }}> </Text>
         </View>
-    )
-}
+    );
+};
 
 export default SplashScreen;
 
@@ -59,10 +57,10 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     text: {
-        ...FONTS.h2,
+        ...FONTS.h1,
         fontWeight: 'bold',
         color: COLORS.purple,
 
