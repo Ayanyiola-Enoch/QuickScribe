@@ -1,6 +1,8 @@
 const logo = require('../assets/images/log2-removebg-preview.png');
 const welcome = require('../assets/images/iamge-removebg-preview-removebg-preview.png')
-
+const sliderOne = require('../assets/images/Slide1.png')
+const sliderTwo = require('../assets/images/Slide1.png')
+// const sliderThree = require('../assets/images/s')
 
 
 // const thumps = require('../assets/images/thumps.png');
@@ -11,12 +13,11 @@ const welcome = require('../assets/images/iamge-removebg-preview-removebg-previe
 
 
 export default {
-    // fingerid,
     logo,
+    sliderOne,
+    sliderTwo,
     // thumps,
+    // fingerid,
     // men,
     // buydata,
-    // sliderOne,
-    // sliderThree,
-    // sliderTwo
 }

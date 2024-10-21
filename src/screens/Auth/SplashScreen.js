@@ -31,8 +31,8 @@ const SplashScreen = () => {
         handleGetInput()
         setTimeout(() => {
             3000;
-        })
-    }), []
+        });
+    }), [];
     return (
         <View style={styles.page}>
             <StatusBar barStyle={'light-content'} backgroundColor={'purple'} />
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.background,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     container: {

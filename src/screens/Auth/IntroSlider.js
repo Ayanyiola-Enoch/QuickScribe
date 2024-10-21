@@ -10,13 +10,13 @@ const slides = [
         key: 1,
         title: 'Capture Every Thought',
         text: 'Turn ideas into action with quick, beautiful notes that sync across all your devices',
-        image: require('../assets/images/Slide2.png'),
+        image: images.sliderOne,
     },
     {
         key: 2,
         title: 'Organize Your Way"',
         text: 'Create folders, add tags, or use search to find exactly what you need, when you need it',
-        image: require('../assets/images/Slide1.png'),
+        image: images.sliderTwo,
     },
 
 ];
