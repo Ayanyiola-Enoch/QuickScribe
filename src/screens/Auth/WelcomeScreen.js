@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView, StatusBar } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView, StatusBar, Button } from 'react-native'
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -22,8 +22,8 @@ const WelcomeScreen = () => {
     try {
       await AsyncStorage.setItem('input', newInput);
       navigation.replace('Main', { newInput });
-      toast('Logged In Successfully'),
-        console.log('Saved Succesfully');
+      // toast('Logged In Successfully'),
+      console.log('Saved Succesfully');
     }
     catch (error) {
       console.log('Error', error);
@@ -55,10 +55,12 @@ const WelcomeScreen = () => {
           <TouchableOpacity onPress={() => submit()}>
             <Image source={require('../../assets/icons/icons8-arrow-right-100.png')} style={{ width: 30, height: 30 }} />
           </TouchableOpacity>
+
         </View>
 
       </ScrollView>
     </View >
+
   );
 };
 
