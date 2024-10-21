@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, StatusBar, Image, Touchable, TouchableOpacity, ImageBackground } from 'react-native';
 import React from 'react';
-import { FONTS, COLORS, icons, images, SIZES } from '../constants';
+import { FONTS, COLORS, icons, images, SIZES } from '../../constants';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { useNavigation } from '@react-navigation/native';
 

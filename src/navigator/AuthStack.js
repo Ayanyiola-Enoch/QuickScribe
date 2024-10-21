@@ -6,8 +6,8 @@ import AddScreen from '../screens/Auth/AddScreen';
 import MainScreen from '../screens/Auth/MainScreen';
 import ShowScreen from '../screens/Auth/ShowScreen';
 import ThanksScreen from '../screens/Auth/ThanksScreen';
-import SplashScreen from '../screens/SplashScreen';
-import IntroSlider from '../screens/IntroSlider';
+import SplashScreen from '../screens/Auth/SplashScreen';
+import IntroSlider from '../screens/Auth/IntroSlider';
 
 const AuthStack = () => {
     const Stack = createNativeStackNavigator();

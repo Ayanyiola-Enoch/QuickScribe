@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
 import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { SIZES, images, COLORS, FONTS } from '../constants';
+import { SIZES, images, COLORS, FONTS } from '../../constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SplashScreen = () => {
@@ -30,9 +30,9 @@ const SplashScreen = () => {
     useEffect(() => {
         handleGetInput()
         setTimeout(() => {
-            3000
+            3000;
         })
-    }, [])
+    }), []
     return (
         <View style={styles.page}>
             <StatusBar barStyle={'light-content'} backgroundColor={'purple'} />
@@ -40,6 +40,8 @@ const SplashScreen = () => {
                 <Image source={images.logo} style={{ width: SIZES.h1 * 1.35, height: SIZES.h1 * 1.35 }} />
                 <Text style={styles.text}>QuickScribe</Text>
             </View>
+            <View style={{ marginTop: 2, }}></View>
+            <Text style={{ backgroundColor: "red", }}> </Text>
         </View>
     )
 }
@@ -62,6 +64,8 @@ const styles = StyleSheet.create({
     text: {
         ...FONTS.h2,
         fontWeight: 'bold',
-        color: COLORS.purple
+        color: COLORS.purple,
+
+
     }
 });

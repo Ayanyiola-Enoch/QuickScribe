@@ -7,8 +7,8 @@ import AddScreen from './src/screens/Auth/AddScreen';
 import MainScreen from './src/screens/Auth/MainScreen';
 import ShowScreen from './src/screens/Auth/ShowScreen';
 import ThanksScreen from './src/screens/Auth/ThanksScreen';
-import SplashScreen from './src/screens/SplashScreen';
-import IntroSlider from './src/screens/IntroSlider';
+import SplashScreen from './src/screens/Auth/SplashScreen';
+import IntroSlider from './src/screens/Auth/IntroSlider';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
