@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View, StatusBar, Touchable, TouchableOpacity, ImageBackground } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { FONTS, COLORS, icons, images, SIZES } from '../../constants';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const slides = [
@@ -23,7 +24,20 @@ const slides = [
 
 const IntroSlider = () => {
     const navigation = useNavigation();
-    const handleNext = () => navigation.navigate('Welcome');
+
+    const [open, setOpen] = useState('');
+
+    const handleNext = async () => {
+        try {
+            await AsyncStorage.setItem('input', 'setOpen');
+            navigation.replace('Welcome');
+
+        } catch (error) {
+            console.log('this is an error', error)
+        }
+
+    };
+
 
     const renderItem = ({ item }) => {
 
@@ -40,7 +54,7 @@ const IntroSlider = () => {
     };
     const renderNextButton = () => {
         return (
-            <TouchableOpacity onPress={() => navigation.replace(renderNextButton)} style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate(renderNextButton)} style={styles.button}>
                 <Text style={styles.butText}>Next</Text>
             </TouchableOpacity>
         )

@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View, FlatList, Image, StatusBar, TouchableOpacity } from 'react-native'
 import React from 'react';
 import { FONTS, COLORS, images, SIZES } from '../../constants';
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
 
 const data = [
     { name: 'Product 1', image: images.sliderOne },
     { name: 'Product 2', image: images.sliderOne },
     { name: 'Product 3', image: images.sliderOne },
     { name: 'Product 4', image: images.sliderOne },
-]
+];
 
 const Class = () => {
     const navigation = useNavigation();

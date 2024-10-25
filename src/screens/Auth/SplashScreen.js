@@ -6,20 +6,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SplashScreen = () => {
     const navigation = useNavigation();
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         navigation.replace('Intro');
-    //     }, 3000)
-    // }, [])
 
     const handleGetInput = async () => {
         try {
             const input = await AsyncStorage.getItem('input'); //retrieved the data inputted
             console.log('the input name is', input);
-            navigation.replace('Welcome');
-            // if (input !== null) {
-            //     setGetInput(value)
-            // }
+            navigation.replace('Intro');
         } catch (error) {
             console.log('this is an error', error);
         }
