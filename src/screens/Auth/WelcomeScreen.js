@@ -22,11 +22,6 @@ const WelcomeScreen = () => {
   const submit = async () => {
     try {
       await AsyncStorage.setItem('input', newInput);
-      // Toast.show({
-      //   type: 'success',
-      //   text1: 'Hello',
-      //   text2: 'This is some something 👋'
-      // });
       Toast.show('This is a toast that can be dismissed (iOS only).', Toast.LONG, {
         tapToDismissEnabled: true,
       });

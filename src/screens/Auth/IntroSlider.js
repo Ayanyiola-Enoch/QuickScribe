@@ -27,16 +27,16 @@ const IntroSlider = () => {
 
     const [open, setOpen] = useState('');
 
-    const handleNext = async () => {
-        try {
-            await AsyncStorage.setItem('input', 'setOpen');
-            navigation.replace('Welcome');
+    // const handleNext = async () => {
+    //     try {
+    //         await AsyncStorage.setItem('input', 'setOpen');
+    //         navigation.replace('Welcome');
 
-        } catch (error) {
-            console.log('this is an error', error)
-        }
+    //     } catch (error) {
+    //         console.log('this is an error', error)
+    //     }
 
-    };
+    // };
 
 
     const renderItem = ({ item }) => {
@@ -54,7 +54,7 @@ const IntroSlider = () => {
     };
     const renderNextButton = () => {
         return (
-            <TouchableOpacity onPress={() => navigation.navigate(renderNextButton)} style={styles.button}>
+            <TouchableOpacity style={styles.button}>
                 <Text style={styles.butText}>Next</Text>
             </TouchableOpacity>
         )
@@ -62,7 +62,7 @@ const IntroSlider = () => {
 
     const renderDoneButton = () => {
         return (
-            <TouchableOpacity onPress={() => handleNext()} style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.replace('Welcome')} style={styles.button}>
                 <Text style={styles.butText}>Done</Text>
             </TouchableOpacity>
         )
@@ -70,7 +70,7 @@ const IntroSlider = () => {
 
     const renderSkipButton = () => {
         return (
-            <TouchableOpacity onPress={() => handleNext()} style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.replace('Welcome')} style={styles.button}>
                 <Text style={styles.butText}>Skip</Text>
             </TouchableOpacity>
         )
