@@ -56,6 +56,7 @@ const addNote = [
 const MainScreen = ({ route }) => {
     const navigation = useNavigation();
 
+
     console.log('this is route:', route);
 
     return (

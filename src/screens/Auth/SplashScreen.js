@@ -1,28 +1,37 @@
 import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { SIZES, images, COLORS, FONTS } from '../../constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SplashScreen = () => {
     const navigation = useNavigation();
+    const [newInput, setNewInput] = useState('');
+    const [isFirstLaunch, setIsFirstLaunch] = useState(null)
 
-    const handleGetInput = async () => {
+    const check = async () => {
         try {
-            const input = await AsyncStorage.getItem('input'); //retrieved the data inputted
-            console.log('the input name is', input);
-            navigation.replace('Intro');
-        } catch (error) {
-            console.log('this is an error', error);
+            const saving = await AsyncStorage.getItem('first')
+
+            if (saving !== null) {
+                navigation.replace('Main', { newInput })
+                console.log('Logged-in before')
+            } else {
+                await AsyncStorage.setItem('first', 'saving')
+                console.log('This is the first time Logging in')
+                navigation.replace('Intro')
+            }
+        }
+
+        catch (error) {
+            console.log('Error checking first launch', error);
+            navigation.replace('Main', newInput);
         }
     };
 
 
     useEffect(() => {
-        handleGetInput()
-        setTimeout(() => {
-            3000;
-        });
+        check();
     }), [];
 
     return (
