@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TextInput, ScrollView, Image, FlatList, Touchab
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
-
+import { COLORS, FONTS, SIZES } from '../../constants';
 
 const addNote = [
     {
@@ -60,8 +60,9 @@ const MainScreen = ({ route }) => {
     console.log('this is route:', route);
 
     return (
-        <View>
+        <>
             {/* Search Space */}
+
 
             <View style={{ marginBottom: 22, backgroundColor: '#f1f1f1', padding: 20, height: 100 }}>
                 <View style={{ marginBottom: 10, paddingHorizontal: 10 }}>
@@ -70,7 +71,7 @@ const MainScreen = ({ route }) => {
                 <View style={{ flexDirection: 'row', alignItems: 'center', }}>
                     <View style={{ borderWidth: 1, borderRadius: 19, width: 280, height: 38, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
                         <Image source={require('../../assets/icons/icons8-search-100.png')} style={{ width: 19, height: 19, marginRight: 10 }} />
-                        <TextInput placeholder="Search Notes" placeholderTextColor="#858585" style={{ fontSize: 12, color: 'black', paddingVertical: 0 }} />
+                        <TextInput placeholder="Search Notes" placeholderTextColor="#858585" style={{ fontSize: 12, color: COLORS.black, paddingVertical: 0 }} />
                     </View>
 
                     <TouchableOpacity style={{ marginLeft: 10 }}>
@@ -133,11 +134,10 @@ const MainScreen = ({ route }) => {
 
                         )
                     }} />
-
             </View>
 
 
-        </View >
+        </ >
     );
 };
 

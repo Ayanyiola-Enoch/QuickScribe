@@ -17,9 +17,9 @@ const SplashScreen = () => {
                 navigation.replace('Main', { newInput })
                 console.log('Logged-in before')
             } else {
-                await AsyncStorage.setItem('first', 'saving')
-                console.log('This is the first time Logging in')
-                navigation.replace('Intro')
+                await AsyncStorage.setItem('first', 'saving');
+                console.log('This is the first time Logging in');
+                navigation.replace('Intro');
             }
         }
 
@@ -64,7 +64,5 @@ const styles = StyleSheet.create({
         ...FONTS.h1,
         fontWeight: 'bold',
         color: COLORS.purple,
-
-
     }
 });
