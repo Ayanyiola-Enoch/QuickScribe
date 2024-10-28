@@ -1,8 +1,20 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+fetch("https://fakestoreapi.com/products?limit=2")
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(item => {
+            console.log(item.description)
+        })
+    })
+
+    .catch(error => console.log(error))
+
 
 const AddScreen = ({ route }) => {
 
@@ -42,7 +54,8 @@ const AddScreen = ({ route }) => {
         catch (error) {
             console.log('the is is an error', error);
         }
-    }
+    };
+
 
 
     return (
@@ -75,9 +88,12 @@ const AddScreen = ({ route }) => {
                     <TextInput placeholder='Enter Description' style={{ marginLeft: 10 }}
                         multiline={true} placeholderTextColor={'grey'}
                         onChangeText={(tt) => setNewDescribe(tt)} />
+                    {/* <Text>{data.description}</Text> */}
                 </View>
 
+
             </View>
+
 
         </View>
     );

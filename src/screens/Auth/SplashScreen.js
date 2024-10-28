@@ -15,7 +15,8 @@ const SplashScreen = () => {
 
             if (saving !== null) {
                 navigation.replace('Main', { newInput })
-                console.log('Logged-in before')
+                setIsFirstLaunch(saving);
+                console.log('Logged-in before');
             } else {
                 await AsyncStorage.setItem('first', 'saving');
                 console.log('This is the first time Logging in');
