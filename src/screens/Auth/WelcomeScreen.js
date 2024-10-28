@@ -13,7 +13,7 @@ const WelcomeScreen = () => {
   {/*setting useState */ }
 
   const [newInput, setNewInput] = useState('');
-  console.log('setNewInput', newInput); // showing inputted value
+  // console.log('setNewInput', newInput); // showing inputted value
 
   const [getInput, setGetInput] = useState('');
 
@@ -22,17 +22,15 @@ const WelcomeScreen = () => {
   const submit = async () => {
     try {
       await AsyncStorage.setItem('input', newInput);
-      Toast.show('This is a toast that can be dismissed (iOS only).', Toast.LONG, {
-        tapToDismissEnabled: true,
-      });
-
+      console.log('setNewInput is ', newInput) // showing inputted value
       navigation.replace('Main', { newInput });
       console.log('Saved Succesfully');
+
     }
     catch (error) {
       console.log('Error', error);
-    }
-  };
+    };
+  }
 
 
 
@@ -67,6 +65,7 @@ const WelcomeScreen = () => {
 
   );
 };
+
 
 export default WelcomeScreen;
 

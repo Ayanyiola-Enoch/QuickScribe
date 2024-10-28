@@ -5,17 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-fetch("https://fakestoreapi.com/products?limit=2")
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item => {
-            console.log(item.description)
-        })
-    })
-
-    .catch(error => console.log(error))
-
-
 const AddScreen = ({ route }) => {
 
     const navigation = useNavigation();
@@ -54,7 +43,22 @@ const AddScreen = ({ route }) => {
         catch (error) {
             console.log('the is is an error', error);
         }
+
     };
+
+    useEffect(() => {
+        fetch("https://fakestoreapi.com/products?limit=2")
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    setSavedDescribe(item[1].description);
+                    console.log('saved  description')
+                })
+            })
+            .catch(error => console.log(error))
+    }, [])
+
+
 
 
 
@@ -86,7 +90,7 @@ const AddScreen = ({ route }) => {
                 </View>
                 <View style={styles.container}>
                     <TextInput placeholder='Enter Description' style={{ marginLeft: 10 }}
-                        multiline={true} placeholderTextColor={'grey'}
+                        multiline={true} placeholderTextColor={'grey'} value={newDescribe}
                         onChangeText={(tt) => setNewDescribe(tt)} />
                     {/* <Text>{data.description}</Text> */}
                 </View>
