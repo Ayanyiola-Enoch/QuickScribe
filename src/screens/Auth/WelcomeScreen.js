@@ -2,9 +2,8 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView,
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import Toast from 'react-native-toast-message';
-// import Toast from 'react-simple-toasts';
 import Toast from 'react-native-toast-message';
+// import Toast from 'react-simple-toasts';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, images } from '../../constants';
 
@@ -23,8 +22,12 @@ const WelcomeScreen = () => {
     try {
       await AsyncStorage.setItem('input', newInput);
       console.log('setNewInput is ', newInput) // showing inputted value
-      navigation.replace('Main', { newInput });
+      // navigation.replace('Main', { newInput });
       console.log('Saved Succesfully');
+      Toast.show({
+        type: "error",
+        text1: "hello"
+      })
 
     }
     catch (error) {

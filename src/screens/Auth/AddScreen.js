@@ -52,10 +52,10 @@ const AddScreen = ({ route }) => {
             .then(data => {
                 data.forEach(item => {
                     setSavedDescribe(item[1].description);
-                    console.log('saved  description')
+                    console.log('saved description')
                 })
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
     }, [])
 
 
