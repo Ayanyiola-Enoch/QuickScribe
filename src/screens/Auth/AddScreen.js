@@ -46,17 +46,7 @@ const AddScreen = ({ route }) => {
 
     };
 
-    useEffect(() => {
-        fetch("https://fakestoreapi.com/products?limit=2")
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(item => {
-                    setSavedDescribe(item[1].description);
-                    console.log('saved description')
-                })
-            })
-            .catch(error => console.log(error));
-    }, [])
+
 
 
 
