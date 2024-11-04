@@ -23,13 +23,13 @@ const Class = () => {
                 .then(res => res.json())
                 .then(json => {
                     console.log('Product description', json)
-                    setProductItem(json)
+                    setProductItem(json);
                 })
         } catch (error) {
             console.log("error", error)
         }
 
-    }
+    };
 
     useEffect(() => {
         product();
@@ -68,7 +68,7 @@ export default Class;
 const styles = StyleSheet.create({
     page: {
         flex: 1,
-        backgroundColor: '#f1f1f1',
+        backgroundColor: COLORS.white,
         paddingTop: 40,
         padding: 20,
         paddingHorizontal: 20,
