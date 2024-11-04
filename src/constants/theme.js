@@ -66,6 +66,7 @@ export const FONTS = {
         fontFamily: 'GeneralSans-Bold',
         fontSize: SIZES.h1,
         lineHeight: screenHeight * 0.05,
+        fontWeight: 'bold',
         color: COLORS.black,
     },
     h2: {
@@ -79,16 +80,20 @@ export const FONTS = {
         fontSize: SIZES.h3,
         lineHeight: screenHeight * 0.025,
         color: COLORS.black,
+        fontWeight: 'bold',
     },
     h3a: {
         fontFamily: 'GeneralSans-Bold',
         fontSize: SIZES.h3a,
         lineHeight: screenHeight * 0.025,
         color: COLORS.black,
+        fontWeight: 'bold',
+
     },
     h4: {
         fontFamily: 'GeneralSans-Bold',
         fontSize: SIZES.h4,
+        fontWeight: 'bold',
         lineHeight: screenHeight * 0.025,
         color: COLORS.black,
     },

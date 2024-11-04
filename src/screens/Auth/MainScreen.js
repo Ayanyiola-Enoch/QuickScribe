@@ -74,7 +74,7 @@ const MainScreen = ({ route }) => {
                         <TextInput placeholder="Search Notes" placeholderTextColor="#858585" style={{ fontSize: 12, color: COLORS.black, paddingVertical: 0 }} />
                     </View>
 
-                    <TouchableOpacity onPress={() => navigation.nav('Note')} style={{ marginLeft: 10 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Note')} style={{ marginLeft: 10 }}>
                         <Image source={require('../../assets/icons/icons8-settings-100.png')} style={{ width: 25, height: 25 }} />
                     </TouchableOpacity>
                 </View>
