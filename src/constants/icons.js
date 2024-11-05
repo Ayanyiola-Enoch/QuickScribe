@@ -1,6 +1,7 @@
 const deleteImg = require('../assets/icons/delete.png')
 const select = require('../assets/icons/check.png')
 const add = require('../assets/icons/icons8-add-100.png')
+const emptyBox = require('../assets/icons/Unchecked.png')
 
 
 // const wallet = require('../assets/icons/wallet.png')
@@ -9,7 +10,11 @@ const add = require('../assets/icons/icons8-add-100.png')
 
 
 export default {
-    deleteImg,
-    select,
     add,
+    deleteImg,
+    emptyBox,
+    select,
+
+
+
 }
