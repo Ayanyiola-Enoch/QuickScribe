@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { COLORS, FONTS, icons, images, SIZES } from '../../constants';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
 
 const Note = () => {
     const [input, setInput] = useState('');
@@ -20,14 +21,18 @@ const Note = () => {
         try {
             await AsyncStorage.setItem('input', input)
             console.log('The inputted value is ', input)
+            Toast.show({
+                type: 'success',
+                text1: 'Successful',
+                text2: 'Note Successfully added',
+            })
         } catch (error) {
-            console.log('This is an error', error)
+            console.log('This is an error', error);
         }
     };
 
     return (
         <View style={styles.page}>
-
             {/* title */}
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Text style={{ ...FONTS.h3 }}>Hi, Enoch</Text>
@@ -48,9 +53,6 @@ const Note = () => {
                                     </View>
 
                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', gap: 5 }}>
-                                        {/* <TouchableOpacity>
-                                            <View style={{ borderRadius: 5, borderWidth: 1, width: SIZES.h3, height: SIZES.h3, alignItems: 'center' }}></View>
-                                        </TouchableOpacity> */}
                                         {
                                             item.isChecked ?
                                                 <Image source={icons.select} style={{ width: SIZES.h2, height: SIZES.h2 }} />
@@ -69,7 +71,11 @@ const Note = () => {
                     }} />
             </View>
 
+            <Toast />
+
             {/* bottom adding input */}
+
+
 
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                 <TextInput placeholder='Enter a new To-do' style={styles.text} onChangeText={(kk) => setInput(kk)} value={input} />

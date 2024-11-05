@@ -12,6 +12,8 @@ import SplashScreen from './src/screens/Auth/SplashScreen';
 import IntroSlider from './src/screens/Auth/IntroSlider';
 import Class from './src/screens/Auth/Class';
 import Note from './src/screens/Auth/Note';
+import Toast from 'react-native-toast-message';
+
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -20,7 +22,7 @@ const App = () => {
 
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
-
+        <Toast />
         <Stack.Navigator initialRouteName='Splash' screenOptions={{ headerShown: false }} >
           <Stack.Screen name="Splash" component={SplashScreen} />
           <Stack.Screen name="Intro" component={IntroSlider} />
