@@ -9,7 +9,7 @@ const Note = () => {
     const [input, setInput] = useState('');
     const [store, setStore] = useState('');
 
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState([]);
 
 
     const navigation = useNavigation();
@@ -34,8 +34,7 @@ const Note = () => {
                         type: 'success',
                         text1: 'Successful',
                         text2: 'Note Successfully added',
-                        position: 'bottom',
-                        bottomOffset: 80,
+                        visibilityTime: 1000,
                     })
             }
         } catch (error) {
@@ -43,12 +42,22 @@ const Note = () => {
         }
     };
 
+    const clearTodo = async () => {
+        setTodos([]);
+        Toast.show({
+            type: 'success',
+            text1: 'Note Deleted',
+            text2: 'Note Successfully deleted',
+            visibilityTime: 1000,
+        });
+    };
+
     return (
         <View style={styles.page}>
             {/* title */}
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Text style={{ ...FONTS.h3 }}>Hi, Enoch</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => clearTodo()}>
                     <Image source={icons.deleteImg} style={{ width: SIZES.h2, height: SIZES.h2 }} />
                 </TouchableOpacity>
             </View>
