@@ -52,6 +52,19 @@ const Note = () => {
         });
     };
 
+    const markTodo = async (mapp) => {
+        console.log(mapp);
+
+        const helloTodo = todos.map((data, index) => {
+            if (data.id === mapp) {
+                return { ...data, isChecked: !data.isChecked }
+            }
+        })
+
+        setTodos(helloTodo);
+        console.log(helloTodo);
+    }
+
     return (
         <View style={styles.page}>
             {/* title */}
@@ -67,19 +80,18 @@ const Note = () => {
                 <FlatList data={todos}
                     renderItem={({ item }) => {
                         return (
-                            <TouchableOpacity style={{ borderRadius: 5, borderWidth: 1, width: '100%', height: SIZES.h1 * 1.8, marginTop: SIZES.h2, justifyContent: 'center', paddingHorizontal: SIZES.h4 }}>
+                            <View style={{ borderRadius: 5, borderWidth: 1, width: '100%', height: SIZES.h1 * 1.8, marginTop: SIZES.h2, justifyContent: 'center', paddingHorizontal: SIZES.h4 }}>
                                 <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
                                     <View style={{ flex: 1, }}>
                                         <Text style={{ ...FONTS.body3, textDecorationLine: item.isChecked ? "line-through" : "none" }}>{item.title}</Text>
                                     </View>
 
                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', gap: 5 }}>
-                                        {
-                                            item.isChecked ?
-                                                <Image source={icons.select} style={{ width: SIZES.h2, height: SIZES.h2 }} />
-                                                :
-                                                <Image source={icons.emptyBox} style={{ width: SIZES.h2, height: SIZES.h2 }} />
-                                        }
+
+                                        {/* Select function */}
+                                        <TouchableOpacity onPress={() => markTodo(item.id)}>
+                                            <Image source={item.isChecked ? icons.select : icons.emptyBox} style={{ width: SIZES.h2, height: SIZES.h2 }} />
+                                        </TouchableOpacity>
 
 
                                         <TouchableOpacity>
@@ -87,7 +99,7 @@ const Note = () => {
                                         </TouchableOpacity>
                                     </View>
                                 </View>
-                            </TouchableOpacity>
+                            </View>
                         );
                     }} />
             </View>
