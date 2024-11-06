@@ -20,7 +20,7 @@ const Note = () => {
             console.log('The inputted value is ', input)
 
             if (input === "") {
-                console.warn('empty todo')
+                console.warn('empty todo');
             }
             else {
                 const newTodo = {
@@ -57,8 +57,10 @@ const Note = () => {
 
         const helloTodo = todos.map((data, index) => {
             if (data.id === mapp) {
-                return { ...data, isChecked: !data.isChecked }
+                // data.isChecked = true
+                data.isChecked = !data.isChecked
             }
+            return data;
         })
 
         setTodos(helloTodo);
