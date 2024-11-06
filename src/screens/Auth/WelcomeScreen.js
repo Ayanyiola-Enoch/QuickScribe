@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-toast-message';
-// import Toast from 'react-simple-toasts';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, images } from '../../constants';
 
@@ -41,6 +40,7 @@ const WelcomeScreen = () => {
   return (
     <View style={styles.page}>
       <StatusBar barStyle={'light-content'} backgroundColor={COLORS.purple} />
+      <Toast />
       <ScrollView>
 
         <View style={{ alignItems: 'center', marginTop: 50 }}>

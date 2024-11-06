@@ -25,6 +25,8 @@ const Note = () => {
                 type: 'success',
                 text1: 'Successful',
                 text2: 'Note Successfully added',
+                position: 'bottom',
+                bottomOffset: 80,
             })
         } catch (error) {
             console.log('This is an error', error);
