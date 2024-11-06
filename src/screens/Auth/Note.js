@@ -9,10 +9,7 @@ const Note = () => {
     const [input, setInput] = useState('');
     const [store, setStore] = useState('');
 
-    const [todos, setTodos] = useState([
-        { id: 1, title: "First Todo", isChecked: true },
-        { id: 2, title: "Second Todo", isChecked: false },
-    ])
+    const [todos, setTodos] = useState([])
 
 
     const navigation = useNavigation();
@@ -21,13 +18,26 @@ const Note = () => {
         try {
             await AsyncStorage.setItem('input', input)
             console.log('The inputted value is ', input)
-            Toast.show({
-                type: 'success',
-                text1: 'Successful',
-                text2: 'Note Successfully added',
-                position: 'bottom',
-                bottomOffset: 80,
-            })
+
+            if (input === "") {
+                console.warn('empty todo')
+            }
+            else {
+                const newTodo = {
+                    id: Math.random(),
+                    title: input,
+                    isChecked: false,
+                };
+                setTodos([...todos, newTodo]);
+                setInput(''),
+                    Toast.show({
+                        type: 'success',
+                        text1: 'Successful',
+                        text2: 'Note Successfully added',
+                        position: 'bottom',
+                        bottomOffset: 80,
+                    })
+            }
         } catch (error) {
             console.log('This is an error', error);
         }
