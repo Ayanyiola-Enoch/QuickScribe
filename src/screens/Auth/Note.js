@@ -18,7 +18,6 @@ const Note = () => {
         try {
             await AsyncStorage.setItem('input', input)
             console.log('The inputted value is ', input)
-
             if (input === "") {
                 console.warn('empty todo');
             }
