@@ -58,7 +58,7 @@ const Note = () => {
         const helloTodo = todos.map((data, index) => {
             if (data.id === mapp) {
                 // data.isChecked = true
-                data.isChecked = !data.isChecked
+                data.isChecked = !data.isChecked; //This is an inverse statement, which means set to be true if false and vice-vera
             }
             return data;
         })
