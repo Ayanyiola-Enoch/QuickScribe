@@ -34,12 +34,21 @@ const Note = () => {
                         text1: 'Successful',
                         text2: 'Note Successfully added',
                         visibilityTime: 1000,
-                    })
+                    });
             }
         } catch (error) {
             console.log('This is an error', error);
         }
     };
+
+    {/*Function to delete a specific todo*/ }
+    const completeTodo = (id) => {
+        const itemTodo = todos.filter((todo) => todo.id !== id);
+        setTodos(itemTodo);
+    }
+
+
+    {/*function to delete all*/ }
 
     const clearTodo = async () => {
         setTodos([]);
@@ -50,6 +59,8 @@ const Note = () => {
             visibilityTime: 1000,
         });
     };
+
+    {/*Function to check the todo*/ }
 
     const markTodo = async (mapp) => {
         console.log(mapp);
@@ -64,7 +75,7 @@ const Note = () => {
 
         setTodos(helloTodo);
         console.log(helloTodo);
-    }
+    };
 
     return (
         <View style={styles.page}>
@@ -87,18 +98,18 @@ const Note = () => {
                                         <Text style={{ ...FONTS.body3, textDecorationLine: item.isChecked ? "line-through" : "none" }}>{item.title}</Text>
                                     </View>
 
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', gap: 5 }}>
+                                    <TouchableOpacity activeOpacity={12} onPress={() => markTodo(item.id)} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', gap: 5 }}>
 
                                         {/* Select function */}
-                                        <TouchableOpacity onPress={() => markTodo(item.id)}>
+                                        <View>
                                             <Image source={item.isChecked ? icons.select : icons.emptyBox} style={{ width: SIZES.h2, height: SIZES.h2 }} />
-                                        </TouchableOpacity>
+                                        </View>
 
-
-                                        <TouchableOpacity>
+                                        {/*Delete specific function*/}
+                                        <TouchableOpacity onPress={() => completeTodo(item.id)}>
                                             <Image source={icons.deleteImg} style={{ width: SIZES.h2, height: SIZES.h2 }} />
                                         </TouchableOpacity>
-                                    </View>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                         );
