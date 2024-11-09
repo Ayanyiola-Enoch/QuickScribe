@@ -37,7 +37,9 @@ const AddScreen = ({ route }) => {
                     description: newDescribe,
                     isChecked: false,
                 };
-                setNotes
+                setNotes([...notes, newTodo]);
+                setNewTitle(''),
+                    setNewDescribe('');
             }
 
         }
