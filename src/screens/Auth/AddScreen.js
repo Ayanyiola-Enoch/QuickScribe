@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
 
 
 const AddScreen = ({ route }) => {
@@ -15,8 +16,6 @@ const AddScreen = ({ route }) => {
     console.log('description', newDescribe);
 
     const [newDescribe, setNewDescribe] = useState('');
-    const [savedDescribe, setSavedDescribe] = useState('');
-
 
     // saved the data for decription using AsyncStorage.. temporary storage
 
@@ -25,26 +24,36 @@ const AddScreen = ({ route }) => {
             await AsyncStorage.setItem('title', newTitle) //setting/ saving the title too
             await AsyncStorage.setItem('description', newDescribe);
             navigation.navigate('Main', { newTitle, newDescribe });
+            if (newTitle || newDescribe === "") {
+                Toast.show({
+                    type: 'success',
+                    text1: 'Note Deleted',
+                    text2: 'Note Successfully deleted',
+                    visibilityTime: 1000,
+                });
+                console.warn("All Input Fields Cannot must be filled")
+            }
+
         }
         catch (error) {
             console.log('Error', error);
         }
     };
 
-    const saved = async () => {
-        try {
-            const get = await AsyncStorage.getItem('description');
-            console.log('the description is', get);
+    // const saved = async () => {
+    //     try {
+    //         const get = await AsyncStorage.getItem('description');
+    //         console.log('the description is', get);
 
-            if (saved !== null) {
-                setSavedDescribe();
-            }
-        }
-        catch (error) {
-            console.log('the is is an error', error);
-        }
+    //         if (saved !== null) {
+    //             setSavedDescribe();
+    //         }
+    //     }
+    //     catch (error) {
+    //         console.log('the is is an error', error);
+    //     }
 
-    };
+    // };
 
 
 
@@ -54,6 +63,7 @@ const AddScreen = ({ route }) => {
 
     return (
         <View style={styles.page}>
+            {/*Top heading*/}
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <View style={{ flex: 1 }}>
                     <TouchableOpacity onPress={() => navigation.navigate('Main', { newTitle })} style={{ width: 39, height: 39, borderWidth: 1, borderColor: '#B3B7C2', alignItems: 'center', justifyContent: 'center', borderRadius: 9 }}>
@@ -65,14 +75,16 @@ const AddScreen = ({ route }) => {
                 </TouchableOpacity>
             </View>
 
-            <View>
 
+            {/*Body*/}
+
+            <View>
                 <View style={{ marginTop: 20, }} >
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Title</Text>
                 </View>
                 <View style={[styles.container, { marginTop: 19, marginBottom: 9, height: 50 }]}>
                     <TextInput placeholder='Enter Title' style={{ marginLeft: 10 }}
-                        multiline={true} placeholderTextColor={'grey'}
+                        multiline={true} placeholderTextColor={'grey'} value={newTitle}
                         onChangeText={(kk) => setNewTitle(kk)} />
                 </View>
                 <View style={{ marginTop: 20, marginBottom: 9 }}>
@@ -82,13 +94,10 @@ const AddScreen = ({ route }) => {
                     <TextInput placeholder='Enter Description' style={{ marginLeft: 10 }}
                         multiline={true} placeholderTextColor={'grey'} value={newDescribe}
                         onChangeText={(tt) => setNewDescribe(tt)} />
-                    {/* <Text>{data.description}</Text> */}
                 </View>
 
 
             </View>
-
-
         </View>
     );
 };
