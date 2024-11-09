@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TextInput, ScrollView, Image, FlatList, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 import { COLORS, FONTS, SIZES } from '../../constants';
@@ -53,8 +53,11 @@ const addNote = [
     },
 
 ];
+
 const MainScreen = ({ route }) => {
     const navigation = useNavigation();
+
+    const [notes, setNotes] = useState([]);
 
 
     console.log('this is route:', route);
@@ -105,7 +108,7 @@ const MainScreen = ({ route }) => {
 
                 {/* Flatlist of tasks */}
 
-                <FlatList data={addNote}
+                <FlatList data={notes}
                     numColumns={2}
                     columnWrapperStyle={{ justifyContent: 'space-between', gap: 0 }}
                     renderItem={({ item }) => {
