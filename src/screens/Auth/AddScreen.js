@@ -7,6 +7,7 @@ import Toast from 'react-native-toast-message';
 
 
 const AddScreen = ({ route }) => {
+    const [notes, setNotes] = useState([]);
 
     const navigation = useNavigation();
     console.log('route', route);
@@ -25,13 +26,24 @@ const AddScreen = ({ route }) => {
             await AsyncStorage.setItem('description', newDescribe);
             navigation.navigate('Main', { newTitle, newDescribe });
             if (newTitle || newDescribe === "") {
+
                 console.warn("All Input Fields Cannot must be filled")
+            }
+            else {
+                const newTodo = {
+                    id: Math.random(),
+                    title: newTitle,
+                    // day: newDate,
+                    description: newDescribe,
+                    isChecked: false,
+                };
+                setNotes
             }
 
         }
         catch (error) {
             console.log('Error', error);
-        }
+        };
     };
 
     // const saved = async () => {
