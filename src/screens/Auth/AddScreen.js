@@ -25,12 +25,6 @@ const AddScreen = ({ route }) => {
             await AsyncStorage.setItem('description', newDescribe);
             navigation.navigate('Main', { newTitle, newDescribe });
             if (newTitle || newDescribe === "") {
-                Toast.show({
-                    type: 'success',
-                    text1: 'Note Deleted',
-                    text2: 'Note Successfully deleted',
-                    visibilityTime: 1000,
-                });
                 console.warn("All Input Fields Cannot must be filled")
             }
 
