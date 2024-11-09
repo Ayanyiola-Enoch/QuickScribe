@@ -29,6 +29,7 @@ const Note = () => {
                 };
                 setTodos([...todos, newTodo]);
                 setInput(''),
+
                     Toast.show({
                         type: 'success',
                         text1: 'Successful',
@@ -42,10 +43,11 @@ const Note = () => {
     };
 
     {/*Function to delete a specific todo*/ }
+
     const completeTodo = (id) => {
         const itemTodo = todos.filter((todo) => todo.id !== id);
         setTodos(itemTodo);
-    }
+    };
 
 
     {/*function to delete all*/ }
@@ -71,7 +73,7 @@ const Note = () => {
                 data.isChecked = !data.isChecked; //This is an inverse statement, which means set to be true if false and vice-vera
             }
             return data;
-        })
+        });
 
         setTodos(helloTodo);
         console.log(helloTodo);
@@ -98,7 +100,7 @@ const Note = () => {
                                         <Text style={{ ...FONTS.body3, textDecorationLine: item.isChecked ? "line-through" : "none" }}>{item.title}</Text>
                                     </View>
 
-                                    <TouchableOpacity activeOpacity={12} onPress={() => markTodo(item.id)} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', gap: 5 }}>
+                                    <TouchableOpacity activeOpacity={5} onPress={() => markTodo(item.id)} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', gap: 5 }}>
 
                                         {/* Select function */}
                                         <View>
