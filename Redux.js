@@ -4,6 +4,7 @@ import { createStore } from "redux";
 // STATE CONTAINER
 const initialState = {
     firstName: 'John',
+    lastName: 'Ade',
 };
 
 // ACTION CREATORS
