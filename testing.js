@@ -21,15 +21,13 @@ const AppContent = () => {
 
 
 
-
-
 const testing = () => {
   return (
     <Provider store={store}>
       <AppContent />
     </Provider>
-  )
-}
+  );
+};
 
 export default testing;
 
