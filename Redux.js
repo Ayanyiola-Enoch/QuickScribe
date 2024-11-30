@@ -8,7 +8,7 @@ const initialState = {
 
 // ACTION CREATORS
 
-const changeName = (firstName) => {
+export const changeName = (firstName) => {
     return {
         type: 'change',
         firstName,
@@ -29,5 +29,5 @@ const reducers = (state = initialState, action) => {
     }
 };
 
-const store = createStore(reducers);
+export const store = createStore(reducers);
 console.log('initialState', store.getState());
