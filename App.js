@@ -13,7 +13,7 @@ import IntroSlider from './src/screens/Auth/IntroSlider';
 import Class from './src/screens/Auth/Class';
 import Note from './src/screens/Auth/Note';
 import Toast from 'react-native-toast-message';
-
+import Testing from './Testing';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -33,6 +33,8 @@ const App = () => {
           <Stack.Screen name="Show" component={ShowScreen} />
           <Stack.Screen name="Thanks" component={ThanksScreen} />
           <Stack.Screen name="Class" component={Class} />
+          <Stack.Screen name="Test" component={Testing} />
+
 
         </Stack.Navigator>
       </NavigationContainer>

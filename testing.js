@@ -21,7 +21,7 @@ const AppContent = () => {
 
 
 
-const testing = () => {
+const Testing = () => {
   return (
     <Provider store={store}>
       <AppContent />
@@ -29,6 +29,6 @@ const testing = () => {
   );
 };
 
-export default testing;
+export default Testing;
 
 const styles = StyleSheet.create({})

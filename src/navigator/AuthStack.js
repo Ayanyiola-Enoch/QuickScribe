@@ -10,7 +10,7 @@ import SplashScreen from '../screens/Auth/SplashScreen';
 import IntroSlider from '../screens/Auth/IntroSlider';
 import Class from '../screens/Auth/Class';
 import Note from '../screens/Auth/Note';
-import testing from '../../testing';
+import testing from '../../Testing';
 
 const AuthStack = () => {
     const Stack = createNativeStackNavigator();

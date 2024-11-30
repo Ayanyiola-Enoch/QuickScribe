@@ -100,7 +100,7 @@ const MainScreen = ({ route }) => {
                         <TouchableOpacity>
                             <Image source={require('../../assets/icons/icons8-sort-amount-up-reversed-100.png')} style={{ width: 21, height: 21 }} />
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Test')}>
                             <Image source={require('../../assets/icons/icons8-list-100.png')} style={{ width: 21, height: 21 }} />
                         </TouchableOpacity>
                     </View>

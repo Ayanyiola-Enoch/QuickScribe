@@ -8,10 +8,10 @@ const initialState = {
 
 // ACTION CREATORS
 
-const changeName = (firstname) => {
+const changeName = (firstName) => {
     return {
         type: 'change',
-        firstname,
+        firstName,
     };
 };
 
