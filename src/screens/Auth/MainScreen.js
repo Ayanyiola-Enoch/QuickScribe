@@ -68,6 +68,7 @@ const MainScreen = ({ route }) => {
 
 
             <View style={{ marginBottom: 22, backgroundColor: '#f1f1f1', padding: 20, height: 100 }}>
+
                 <View style={{ marginBottom: 10, paddingHorizontal: 10 }}>
                     <Text style={{ color: 'black', fontWeight: '600', fontSize: 14 }}>Hello, { }</Text>
                 </View>
@@ -82,7 +83,6 @@ const MainScreen = ({ route }) => {
                     </TouchableOpacity>
                 </View>
 
-
             </View>
 
             {/* bottom view with background */}
@@ -94,7 +94,7 @@ const MainScreen = ({ route }) => {
                         <Text style={{ marginLeft: 3, fontSize: 12, color: 'white' }}>New note</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 30 }}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Class')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cl    ass')}>
                             <Image source={require('../../assets/icons/icons8-add-note-100.png')} style={{ width: 21, height: 21, }} />
                         </TouchableOpacity>
                         <TouchableOpacity>
@@ -132,7 +132,6 @@ const MainScreen = ({ route }) => {
                                         <Text style={{ fontSize: 12, color: 'grey' }}>{item.day}</Text>
                                     </View>
                                 </TouchableOpacity>
-
                             </View>
 
                         )
